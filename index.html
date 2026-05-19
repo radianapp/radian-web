@@ -1309,7 +1309,7 @@
             <div class="contact-item-icon">📧</div>
             <div class="contact-item-text">
               <div class="contact-item-label">Email</div>
-              <div class="contact-item-value">hello@radian.web.id</div>
+              <div class="contact-item-value">heyradian@gmail.com</div>
             </div>
           </div>
           <div class="contact-item">
@@ -1358,7 +1358,7 @@
       </svg>
       <div>
         <div class="footer-name">Radian <span>Data</span> Pintar</div>
-        <div class="footer-copy">© 2024 Radian Data Pintar. All rights reserved.</div>
+        <div class="footer-copy">© 2026 Radian Data Pintar. All rights reserved.</div>
       </div>
     </div>
     <ul class="footer-links">
@@ -1395,7 +1395,7 @@ async function submitForm() {
   btn.disabled = true;
 
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    const res = await fetch('https://formspree.io/f/mzdwdbyd', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ name, email, subject, message })
@@ -1410,7 +1410,7 @@ async function submitForm() {
   } catch {
     btn.textContent = 'Send Message';
     btn.disabled = false;
-    alert('Something went wrong. Please try emailing us directly at hello@radian.web.id');
+    alert('Something went wrong. Please try emailing us directly at heyradian@gmail.com');
   }
 }
 </script>
