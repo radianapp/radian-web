@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Radian Work</title>
+  <link rel="stylesheet" href="css/home.style.css">
+  <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="images/logo-rd.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    html {
+      scroll-behavior: smooth
+    }
+
+    .recomended .pricing-title {
+      background-color: #ffc91f;
+      color: #000
+    }
+
+    .recomended .btn a {
+      background-color: #ffc91f;
+      color: #000
+    }
+
+    .recomended .btn a:hover {
+      background-color: #ffd342;
+      color: #000
+    }
+
+    .recomended {
+      background-color: #202442;
+      color: #fff
+    }
+
+    .bg-skew-yellow-b {
+      background: #202442
+    }
+
+    .bg-skew-white-b {
+      background: #fff
+    }
+
+    .bg-skew-black {
+      background: #202442
+    }
+
+    .bg-skew-black-t {
+      background: #202442
+    }
+
+    .bg-skew-black-alt {
+      background: #202442
+    }
+
+    .underline-yellow {
+      background: #ffc91f
+    }
+
+    @media (min-width:1024px) {
+      .bg-skew-yellow-b::after {
+        content: "";
+        position: absolute;
+        bottom: -5%;
+        left: -50%;
+        right: -50%;
+        top: -50%;
+        transform: rotate(-8deg) skew(-8deg);
+        background: #202442;
+        z-index: -1
+      }
+
+      .bg-skew-white-b:after {
+        content: "";
+        position: absolute;
+        bottom: 61px;
+        left: -50%;
+        right: -50%;
+        top: -50%;
+        transform: rotate(-8deg) skew(-8deg);
+        background: #fff;
+        z-index: -1
+      }
+
+      .bg-skew-black::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -50%;
+        right: -50%;
+        top: 0;
+        transform: rotate(-8deg) skew(-8deg);
+        background: #202442;
+        z-index: -1
+      }
+
+      .bg-skew-black-t:after {
+        content: "";
+        position: absolute;
+        bottom: -50%;
+        left: -50%;
+        right: -50%;
+        top: 0;
+        transform: rotate(-8deg) skew(-8deg);
+        background: #202442;
+        z-index: -1
+      }
+
+      .bg-skew-black-alt::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -50%;
+        right: -50%;
+        top: 0;
+        transform: rotate(8deg) skew(8deg);
+        background: #202442;
+        z-index: -1
+      }
+
+      .underline-yellow::after {
+        content: "";
+        background: #ffc91f;
+        width: 100%;
+        height: 10px;
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        bottom: 0
+      }
+
+      .bg-skew-black,
+      .bg-skew-black-alt,
+      .bg-skew-black-t,
+      .bg-skew-white-b,
+      .bg-skew-yellow-b,
+      .underline-yellow {
+        background: 0 0
+      }
+    }
+  </style>
+</head>
+
+<body class="w-full h-auto flex-col flex justify-center items-center max-lg:bg-primary">
+  <section
+    class="overflow-x-clip h-screen flex flex-col relative px-[10vw] max-xl:px-5 transition-a ll duration-150 z-10 bg-skew-yellow-b mb-16 text-white">
+    <nav class="w-full flex items-center max-lg:justify-between gap-10 px-0 p-2 pt-10 max-lg:pt-5 relative">
+      <div class="flex justify-between items-center"><a href="#"><img src="images/logo-rd.png" alt="Radian" width="48px"
+            height="48px"></a><span class="font-bold px-4">Radian</span></div>
+      <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white h-auto hidden flex-col text-black">
+        <div class="auth flex w-full border-b border-slate-400 justify-between items-center p-5"><a
+            href="https://app.radian.web.id/user/login/" class="py-2 hover:underline">Login</a><a
+            href="https://app.radian.web.id/user/register/"
+            class="font-bold px-6 py-2.5 border-2 border-black rounded-md hover:bg-primary hover:text-white transition-all">Sign
+            Up</a></div>
+        <div class="link flex gap-2 flex-col p-5"><a href="#pricing" class="hover:underline">Pricing</a><a href="#FAQ"
+            class="hover:underline">FAQ</a><a href="#contact" class="hover:underline">Contact Us</a></div>
+      </div>
+      <div class="w-full flex items-center max-lg:justify-end justify-between px-5 max-lg:hidden">
+        <div class="link flex gap-12 max-lg:hidden"><a href="#pricing" class="hover:underline">Pricing</a><a href="#FAQ"
+            class="hover:underline">FAQ</a><a href="#contact" class="hover:underline">Contact Us</a></div>
+        <div class="auth flex gap-5 max-lg:hidden"><a href="https://app.radian.web.id/user/login/"
+            class="p-2 hover:underline">Login</a><a href="https://app.radian.web.id/user/register/"
+            class="font-bold px-6 py-2.5 border-2 border-white rounded-md hover:bg-white hover:text-black transition-all">Sign
+            Up</a></div>
+      </div><svg class="ham hamRotate ham4 max-lg:inline-block hidden" viewBox="0 0 100 100" width="80"
+        onclick='this.classList.toggle("active")' id="hamburgerBtn">
+        <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path class="line middle" d="m 70,50 h -40" />
+        <path class="line bottom"
+          d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+      </svg>
+    </nav>
+    <main class="w-full h-full grid grid-cols-2 max-lg:grid-cols-1 gap-10 items-center">
+      <div class="title flex flex-col gap-5 justify-start items-start">
+        <h1 class="text-6xl max-lg:text-5xl font-bold leading-tight">Get accurate data scraping with our service</h1>
+        <p class="text-xl max-lg:text-lg">Retrieve high-quality data with precision and efficiency, ensure data
+          integrity with our robust scraping methods. Gain access to unbiased and comprehensive data insights and
+          uncover hidden patterns and trends with accurate data scraping or empower informed decision-making with
+          reliable data.</p><a href="https://app.radian.web.id/user/register/"
+          class="bg-buttton text-black font-bold px-8 py-4 rounded-md hover:bg-slate-800 transition-all duration-150">Try
+          for Free</a>
+      </div>
+      <div class="sticker w-full max-lg:hidden"><img src="images/extract-min.png" alt="Sticker Here" class="w-10/12">
+      </div>
+    </main>
+  </section>
+  <section class="w-full h-auto bg-white px-[10vw] max-lg:px-0 py-40" id="pricing">
+    <div class="text-center text-gray-200 mb-20">
+      <h3 class="text-black font-bold text-6xl max-lg:text-3xl mb-15 leading-normal max-lg:leading-loose">The easy way
+        to get the data you need.</h3>
+    </div>
+    <div class="overflow-auto md:overflow-visible mb-20">
+      <div class="w-full flex justify-center max-lg:justify-normal min-w-[750px] text-lg">
+        <div class="w-[250px] p-2 flex flex-col gap-5 text-gray-500">
+          <div class="w-full h-[150px] relative">
+            <div class="px-5 pt-16 pb-5 items-center justify-end flex-col w-full flex"></div>
+          </div>
+          <div class="w-full px-5 py-2 h-14">API Credits</div>
+          <div class="w-full px-5 py-2 h-14">Concurrent requests</div>
+          <div class="w-full px-5 py-2 h-14">JavaScript rendering</div>
+          <div class="w-full px-5 py-2 h-14">Rotating Proxies</div>
+          <div class="w-full px-5 py-2 h-14">Geotargeting</div>
+          <div class="w-full px-5 py-2 h-14">Screenshots, Extraction Rules, Google Map API</div>
+        </div>
+        <div class="flex-1 overflow-hidden">
+          <div class="flex">
+            <div class="w-1/3 flex flex-col gap-5">
+              <div class="w-full h-[150px] relative border-b border-gray-400">
+                <h1 class="text-center px-5 py-2 text-sm font-semibold pricing-title absolute top-0 left-0 w-full"></h1>
+                <div class="px-5 pt-16 pb-5 items-center justify-end flex-col w-full flex">
+                  <h1 class="text-2xl font-semibold">Free</h1><span class="flex text-2xl"><strong
+                      class="font-semibold">IDR 0,00</strong><small>/mo</small></span>
+                </div>
+              </div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold">1000</div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold">1</div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i class="fa fa-times text-4xl text-danger"
+                  aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i class="fa fa-times text-4xl text-danger"
+                  aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i class="fa fa-times text-4xl text-danger"
+                  aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i class="fa fa-times text-4xl text-danger"
+                  aria-hidden="true"></i></div>
+              <div class="w-full text-center h-14 font-semibold btn"><a
+                  href="https://app.radian.web.id/user/register/?plan=free"
+                  class="font-semibold text-sm xl:px-12 px-4 py-2.5 border-2 border-black rounded-md hover:bg-primary hover:text-white transition-all">Try
+                  Now</a></div>
+            </div>
+            <div class="w-1/3 flex flex-col gap-5 recomended">
+              <div class="w-full h-[150px] relative border-b border-gray-400">
+                <h1 class="text-center px-5 py-2 text-sm font-semibold pricing-title absolute top-0 left-0 w-full">
+                  Recommended</h1>
+                <div class="px-5 pt-16 pb-5 items-center justify-end flex-col w-full flex">
+                  <h1 class="text-2xl font-semibold">Basic</h1><span class="flex text-2xl"><strong
+                      class="font-semibold">IDR 1.500.000,-</strong><small>/mo</small></span>
+                </div>
+              </div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold">10,000</div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold">3</div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i
+                  class="fa fa-check text-4xl text-green-500" aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i class="fa fa-times text-4xl text-danger"
+                  aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i class="fa fa-times text-4xl text-danger"
+                  aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i class="fa fa-times text-4xl text-danger"
+                  aria-hidden="true"></i></div>
+              <div class="w-full text-center h-14 font-semibold btn"><a
+                  href="https://app.radian.web.id/user/register/?plan=basic"
+                  class="font-semibold text-sm xl:px-12 px-4 py-2.5 border-2 border-black rounded-md hover:bg-primary hover:text-white transition-all">Try
+                  Now</a></div>
+            </div>
+            <div class="w-1/3 flex flex-col gap-5">
+              <div class="w-full h-[150px] relative border-b border-gray-400">
+                <h1 class="text-center px-5 py-2 text-sm font-semibold pricing-title absolute top-0 left-0 w-full"></h1>
+                <div class="px-5 pt-16 pb-5 items-center justify-end flex-col w-full flex">
+                  <h1 class="text-2xl font-semibold">Pro</h1><span class="flex text-2xl"><strong
+                      class="font-semibold">IDR 50.000.000,-</strong><small>/mo</small></span>
+                </div>
+              </div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold">1,000,000</div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold">5</div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i
+                  class="fa fa-check text-4xl text-green-500" aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i
+                  class="fa fa-check text-4xl text-green-500" aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i
+                  class="fa fa-check text-4xl text-green-500" aria-hidden="true"></i></div>
+              <div class="w-full text-center px-5 py-2 h-14 font-semibold"><i
+                  class="fa fa-check text-4xl text-green-500" aria-hidden="true"></i></div>
+              <div class="w-full text-center h-14 font-semibold btn"><a
+                  href="https://app.radian.web.id/user/register/?plan=pro"
+                  class="font-semibold text-sm xl:px-12 px-4 py-2.5 border-2 border-black rounded-md hover:bg-primary hover:text-white transition-all">Try
+                  Now</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-xl mb-2">Not sure what plan you need?<a href="https://app.radian.web.id/user/register/?plan=free"
+          class="font-bold underline">Try Radian with 1000 free API calls.</a></p>
+      <p class="text-lg text-gray-500">(No credit card required)</p>
+    </div>
+  </section>
+  <section id="FAQ"
+    class="w-full p-20 max-lg:h-auto text-white flex-col bg-white px-[10vw] max-lg:px-0 bg-skew-black relative z-10 overflow-x-clip flex justify-center items-center">
+    <h1 class="text-5.5xl text-white font-bold">FAQ</h1>
+    <div class="flex flex-wrap max-lg:flex-col">
+      <div class="w-1/2 max-lg:w-full h-full flex flex-col px-12">
+        <div class="py-5"><strong class="block text-xl">How use API credits?</strong><span
+            class="block text-gray-300">Every time you call our service you will be charged 1 credit, depending on the
+            results obtained, if the data is completely new you will be charged 1 credit, if the data already exists,
+            you will not be charged.</span></div>
+        <div class="py-5"><strong class="block text-xl">I need more than 1,000,000 credits per month!</strong><span
+            class="block text-gray-300">We got you covered! Just contact us at<a
+              href="mailto:buRadianapp@gmail.com">Radian</a>, we will chat and create a custom plan for you!</span>
+        </div>
+      </div>
+      <div class="w-1/2 max-lg:w-full h-full flex flex-col px-12">
+        <div class="py-5"><strong class="block text-xl">What scraping services are there?</strong><span
+            class="block leading-a50 text-gray-300">We provide data collection based on keywords for news sites, social
+            media, maps and other websites.</span></div>
+        <div class="py-5"><strong class="block text-xl">What happens if I run out of credits before the end of my
+            current subscription?</strong><span class="block leading-a50 text-gray-300">No worries, we got you covered.
+            If you need more credits, you can subscribe new plan for the current month.</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="w-full h-auto bg-white px-[10vw] max-lg:px-5 py-40" id="contact">
+    <div class="w-full h-52 flex justify-center items-center flex-col">
+      <h1 class="font-bold text-6xl">Contact us</h1><span class="text-2xl">Got any questions? Don't hesitate to
+        reach</span><a href="mailto:heyradian@gmail.com"
+        class="my-5 px-12 py-4 bg-primary text-white rounded-md font-bold text-lg">Get in touch</a>
+    </div>
+  </section>
+  <footer class="w-full px-[10vw] flex flex-wrap bg-primary text-white">
+    <div
+      class="w-full pb-24 pt-40 flex items-center max-lg:flex-col max-lg:text-center max-lg:gap-5 justify-between border-b-[0.4px] border-gray-700">
+      <div>
+        <h1 class="text-6xl max-lg:text-4xl font-bold">Ready to get started?</h1><span
+          class="text-lg max-lg:text-sm">Get access to 1,000 free API credits, no credit card required!</span>
+      </div><a href="https://app.radian.web.id/user/register/?plan=free"
+        class="bg-buttton text-black font-bold px-8 py-4 rounded-md hover:bg-slate-800 transition-all duration-150">Try
+        for Free</a>
+    </div>
+    <div class="mx-auto w-full max-w-screen-xl">
+      <div class="grid grid-cols-2 max-lg:grid-cols-1 max-lg:text-center gap-2 px-4 py-6 lg:py-8 md:grid-cols-4">
+        <div class="flex flex-col gap-2 row-span-6 max-lg:items-center"><img src="images/logo.png" alt=""
+            width="150px"><span class="text-lg my-5">Radian Retrieve high-quality data with precision and
+            efficiency.</span>
+          <div class="flex gap-4">
+            <a href="https://x.com/RadianWork" class="hover:text-secondary" target="_blank"><i
+                class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.instagram.com/radianworkid/"
+              class="hover:text-secondary" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+        </div>
+        <div></div>
+        <div></div>
+        <div>
+          <h2 class="mb-6 text-lg font-semibold text-secondary">Product</h2>
+          <ul class="text-white text-lg">
+            <li class="mb-4"><a href="#pricing" class="hover:underline text-lg">Pricing</a></li>
+            <li class="mb-4"><a href="#FAQ" class="hover:underline text-lg">FAQ</a></li>
+            <li class="mb-4"><a href="#contact" class="hover:underline text-lg">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="w-full flex flex-col gap-2 items-center py-16 text-lg font-semibold"><i
+        class="fa fa-clock bg-yellow-500 text-black rounded-full aspect-square p-4 text-2xl" aria-hidden="true"></i>
+      <p>Copyright &copy; 2024 Radian Work</p>
+    </div>
+  </footer>
+  <script>let hamburgerBtn = document.getElementById("hamburgerBtn");
+    let menu = document.getElementById("mobile-menu");
+    hamburgerBtn.addEventListener("click", function () {
+      menu.classList.toggle("hidden");
+    });
+    hamburgerBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+    window.addEventListener("click", function () {
+      if (!hamburgerBtn.contains(event.target)) {
+        menu.classList.add("hidden");
+        hamburgerBtn.classList.remove("active");
+      }
+    });</script>
+</body>
+
+</html>

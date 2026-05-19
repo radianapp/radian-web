@@ -1,356 +1,1418 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Radian Data Pintar</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Radian Data Pintar — Smart Data Solutions</title>
+<meta name="description" content="A consolidated portfolio of innovative data products for modern businesses."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1224'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%235b6ef5' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%235b6ef5'/%3E%3Cline x1='32' y1='10' x2='32' y2='18' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='32' y1='46' x2='32' y2='54' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='10' y1='32' x2='18' y2='32' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='46' y1='32' x2='54' y2='32' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
+  :root {
+    --ink: #0d1224;
+    --ink-soft: #1e2540;
+    --accent: #5b6ef5;
+    --accent-glow: rgba(91,110,245,.15);
+    --coral: #e85d4a;
+    --muted: #6b7280;
+    --surface: #f5f6fa;
+    --white: #ffffff;
+    --border: rgba(0,0,0,.08);
+    --radius: 16px;
+    --radius-sm: 10px;
+    font-size: 16px;
+  }
 
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Radian Data Pintar</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                </nav>
+  html { scroll-behavior: smooth; }
 
-            <!-- Header-->
-            <header class="py-5">
-                <div class="container px-5 pb-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-xxl-5">
-                            <!-- Header text content-->
-                            <div class="text-center text-xxl-start">
-                                <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
-                                    <div class="text-uppercase">Design &middot; Development &middot; Marketing</div></div>
-                                <div class="fs-3 fw-light text-muted">We can help your business to</div>
-                                <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Empowering Businesses with Smart Data Solutions</span></h1>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#solutions">Explore Our Solutions</a>
-                                    <!-- <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder"  href="#about">About Us</a> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-7">
-                            <!-- Header profile picture-->
-                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                <div class="profile bg-gradient-primary-to-secondary">
-                                    <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                                    <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                                    <img class="profile-img" src="assets/profile.svg" alt="..." />
-                                    <div class="dots-1">
-                                        <!-- SVG Dots-->
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">
-                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
-                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
-                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
-                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
-                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
-                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
-                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
-                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
-                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
-                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
-                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
-                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
-                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
-                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
-                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
-                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
-                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
-                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
-                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
-                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
-                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
-                                            </g>
-                                        </svg>
-                                        <!-- END of SVG dots-->
-                                    </div>
-                                    <div class="dots-2">
-                                        <!-- SVG Dots-->
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">
-                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
-                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
-                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
-                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
-                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
-                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
-                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
-                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
-                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
-                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
-                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
-                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
-                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
-                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
-                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
-                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
-                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
-                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
-                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
-                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
-                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
-                                            </g>
-                                        </svg>
-                                        <!-- END of SVG dots-->
-                                    </div>
-                                    <div class="dots-3">
-                                        <!-- SVG Dots-->
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">
-                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
-                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
-                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
-                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
-                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
-                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
-                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
-                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
-                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
-                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
-                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
-                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
-                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
-                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
-                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
-                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
-                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
-                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
-                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
-                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
-                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
-                                            </g>
-                                        </svg>
-                                        <!-- END of SVG dots-->
-                                    </div>
-                                    <div class="dots-4">
-                                        <!-- SVG Dots-->
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">
-                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
-                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
-                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
-                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
-                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
-                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
-                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
-                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
-                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
-                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
-                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
-                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
-                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
-                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
-                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
-                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
-                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
-                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
-                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
-                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
-                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
-                                            </g>
-                                        </svg>
-                                        <!-- END of SVG dots-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
 
-            <!-- Solutions Section-->
-            <section id="solutions" class="py-5">
-                <div class="container px-5 mb-5">
-                    <div class="text-center mb-5">
-                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Our Capabilities</span></h1>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-11 col-xl-9 col-xxl-8">
-                            <!-- Project Card 1-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder">DataMart</h2>
-                                            <p>DataMart helps you access, collect, and present data from various online sources, from social media to e-commerce, all in one integrated platform. Gain deep insights and make data the foundation of your business decision making.</p>
-                                        </div>
-                                        <img class="img-fluid" src="assets/dm.jpg" alt="dm" width="50%"/>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Call to action section-->
-            <section class="py-5 bg-gradient-primary-to-secondary text-white">
-                <div class="container px-5 my-5">
-                    <div class="text-center">
-                        <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="#contact">Contact us</a>
-                    </div>
-                </div>
-            </section>
+  h1, h2, h3, h4, h5 {
+    font-family: 'Syne', sans-serif;
+  }
 
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(13,18,36,.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
 
-            <!-- About Section-->
-            <section id="about" class="bg-light py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-xxl-8">
-                            <div class="my-5">
-                                <h2 class="display-5 fw-bolder mb-5"><span class="text-gradient d-inline">About Radian Data Pintar</span></h2>
-                                <h4>Our Vision</h4>
-                                <p class="lead fw-light mb-4">To be an innovation leader in smart and efficient data processing and analysis solutions, and to contribute to the development of data technology in Indonesia and globally.</p>
-                                <h4>Our Mission</h4>
-                                <ul>
-                                    <li>Providing accurate, fast, and reliable data collection and analysis services to support better decision making for customers.</li>
-                                    <li>Developing innovative data technology and making it easier for companies to manage, understand, and utilize data effectively.</li>
-                                    <li>Building strategic collaborations with various industry sectors to create data solutions that suit modern business needs.</li>
-                                    <li>Encouraging a culture of continuous research and development to ensure that the solutions produced are always relevant to the latest technological developments.</li>
-                                    <li>Increasing data literacy and awareness through education and training, empowering communities and companies to optimize data usage.</li>
-                                    <li>This vision and mission reflect Radian Data Pintar's commitment to presenting intelligent data solutions that are oriented towards innovation and efficiency.</li>
-                                </ul>
-                                <!-- <div class="d-flex justify-content-center fs-2 gap-4">
-                                    <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
-                                    <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
-                                    <a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Sub About -->
-            <div class="container px-5 my-5">
-                <!-- <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
-                </div> -->
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-11 col-xl-9 col-xxl-8">
-                        
-                        <!-- Skills Section-->
-                        <section>
-                            <!-- Skillset Card-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <!-- Professional skills list-->
-                                    <div class="mb-5">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Data Analysis and Visualization</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Data Architecture and Pipeline Design</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Statistical Modeling</div></div>
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
 
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Database Management</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Programming and Scripting</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Machine Learning and AI Development</div></div>
-                                        </div>
-                                    </div>
-                                    <!-- Languages list-->
-                                    <div class="mb-0">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">R</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SQL</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">MATLAB</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Julia</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SAS</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
+  .nav-logo {
+    width: 34px; height: 34px;
+  }
+
+  .nav-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    letter-spacing: -.01em;
+  }
+
+  .nav-name span { color: var(--accent); }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,.65);
+    text-decoration: none;
+    font-size: .875rem;
+    font-weight: 500;
+    transition: color .2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--white) !important;
+    padding: .5rem 1.2rem;
+    border-radius: 8px;
+    transition: opacity .2s !important;
+  }
+
+  .nav-cta:hover { opacity: .85; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(91,110,245,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,110,245,.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-blob {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,110,245,.18) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+
+  .hero-blob2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,93,74,.12) 0%, transparent 70%);
+    bottom: -80px; left: 5%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(91,110,245,.15);
+    border: 1px solid rgba(91,110,245,.35);
+    color: #8b98fa;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .4rem .9rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -.03em;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, #5b6ef5, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,.55);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    padding: .85rem 1.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: .95rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(91,110,245,.4);
+  }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    padding: .85rem 1.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: .95rem;
+    transition: background .2s;
+  }
+
+  .btn-ghost:hover { background: rgba(255,255,255,.12); }
+
+  /* Hero visual */
+  .hero-visual {
+    display: flex; justify-content: flex-end;
+  }
+
+  .data-card-stack {
+    position: relative;
+    width: 340px; height: 340px;
+  }
+
+  .data-orb {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #5b6ef5, #a78bfa, #e85d4a, #5b6ef5);
+    animation: spin 8s linear infinite;
+    opacity: .8;
+  }
+
+  .data-orb::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: #0d1224;
+  }
+
+  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .data-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(91,110,245,.25);
+    animation: ringPulse 3s ease-in-out infinite;
+  }
+
+  .data-ring:nth-child(2) { width: 220px; height: 220px; animation-delay: 0s; }
+  .data-ring:nth-child(3) { width: 280px; height: 280px; animation-delay: .5s; }
+  .data-ring:nth-child(4) { width: 340px; height: 340px; animation-delay: 1s; }
+
+  @keyframes ringPulse {
+    0%, 100% { opacity: .4; }
+    50% { opacity: .1; }
+  }
+
+  .data-dot {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    top: 50%; left: 50%;
+  }
+
+  .data-dot:nth-child(5) {
+    transform: rotate(0deg) translate(-110px) rotate(0deg);
+    animation: orbitDot 4s linear infinite;
+  }
+
+  .data-dot:nth-child(6) {
+    background: var(--coral);
+    transform: rotate(120deg) translate(-140px) rotate(-120deg);
+    animation: orbitDot2 5s linear infinite;
+  }
+
+  .data-dot:nth-child(7) {
+    background: #a78bfa;
+    transform: rotate(240deg) translate(-90px) rotate(-240deg);
+    animation: orbitDot3 3s linear infinite;
+  }
+
+  @keyframes orbitDot {
+    from { transform: rotate(0deg) translate(-110px) rotate(0deg); }
+    to { transform: rotate(360deg) translate(-110px) rotate(-360deg); }
+  }
+
+  @keyframes orbitDot2 {
+    from { transform: rotate(120deg) translate(-140px) rotate(-120deg); }
+    to { transform: rotate(480deg) translate(-140px) rotate(-480deg); }
+  }
+
+  @keyframes orbitDot3 {
+    from { transform: rotate(240deg) translate(-90px) rotate(-240deg); }
+    to { transform: rotate(600deg) translate(-90px) rotate(-600deg); }
+  }
+
+  .orb-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+  }
+
+  .orb-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: .25rem;
+  }
+
+  .orb-label {
+    font-family: 'Syne', sans-serif;
+    font-size: .7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  /* Hero stats */
+  .hero-stats {
+    display: flex; gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .stat {
+    text-align: left;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-num span { color: var(--accent); }
+
+  .stat-label {
+    font-size: .75rem;
+    color: rgba(255,255,255,.4);
+    margin-top: .2rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 100px 5%; }
+
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -.025em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--surface); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform .3s, box-shadow .3s;
+    display: flex; flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.1);
+  }
+
+  .product-header {
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-header.kenal {
+    background: linear-gradient(135deg, #1a1f3c, #2d3561);
+  }
+
+  .product-header.tmpt {
+    background: linear-gradient(135deg, #0f2027, #1a3a4a);
+  }
+
+  .product-header.taliti {
+    background: linear-gradient(135deg, #0f2d1a, #143d28);
+  }
+
+  .product-icon-wrap {
+    width: 80px; height: 80px;
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .product-icon-wrap.kenal {
+    background: rgba(91,110,245,.2);
+    border: 1px solid rgba(91,110,245,.4);
+  }
+
+  .product-icon-wrap.tmpt {
+    background: rgba(20,184,166,.2);
+    border: 1px solid rgba(20,184,166,.4);
+  }
+
+  .product-icon-wrap.taliti {
+    background: rgba(34,197,94,.2);
+    border: 1px solid rgba(34,197,94,.4);
+  }
+
+  .product-header-particles {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .product-body {
+    padding: 1.5rem;
+    flex: 1; display: flex; flex-direction: column;
+  }
+
+  .product-tag {
+    display: inline-block;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .3rem .7rem;
+    border-radius: 100px;
+    margin-bottom: .75rem;
+  }
+
+  .product-tag.kenal { background: rgba(91,110,245,.1); color: var(--accent); }
+  .product-tag.tmpt { background: rgba(20,184,166,.1); color: #0d9488; }
+  .product-tag.taliti { background: rgba(34,197,94,.1); color: #16a34a; }
+
+  .product-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: .5rem;
+    letter-spacing: -.02em;
+  }
+
+  .product-desc {
+    font-size: .9rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .product-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-features li {
+    display: flex; align-items: flex-start; gap: .5rem;
+    font-size: .83rem;
+    color: var(--muted);
+    margin-bottom: .4rem;
+  }
+
+  .product-features li::before {
+    content: '✓';
+    font-weight: 700;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .product-features li.kenal::before { color: var(--accent); }
+  .product-features li.tmpt::before { color: #0d9488; }
+  .product-features li.taliti::before { color: #16a34a; }
+
+  .product-link {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-weight: 600;
+    font-size: .875rem;
+    text-decoration: none;
+    padding: .65rem 1.25rem;
+    border-radius: 8px;
+    transition: opacity .2s, transform .2s;
+    width: fit-content;
+  }
+
+  .product-link:hover { opacity: .85; transform: translateX(2px); }
+
+  .product-link.kenal { background: rgba(91,110,245,.1); color: var(--accent); }
+  .product-link.tmpt { background: rgba(20,184,166,.1); color: #0d9488; }
+  .product-link.taliti { background: rgba(34,197,94,.1); color: #16a34a; }
+
+  .product-link svg {
+    width: 14px; height: 14px;
+    transition: transform .2s;
+  }
+
+  .product-link:hover svg { transform: translateX(3px); }
+
+  /* ── CAPABILITIES ── */
+  #capabilities { background: var(--ink); }
+
+  #capabilities .section-eyebrow { color: #8b98fa; }
+
+  #capabilities .section-title { color: var(--white); }
+
+  #capabilities .section-sub { color: rgba(255,255,255,.5); }
+
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .cap-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: background .3s, border-color .3s;
+  }
+
+  .cap-card:hover {
+    background: rgba(91,110,245,.08);
+    border-color: rgba(91,110,245,.25);
+  }
+
+  .cap-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(91,110,245,.15);
+    border: 1px solid rgba(91,110,245,.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cap-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: .6rem;
+    letter-spacing: -.01em;
+  }
+
+  .cap-desc {
+    font-size: .875rem;
+    color: rgba(255,255,255,.45);
+    line-height: 1.65;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card-main {
+    background: var(--ink);
+    border-radius: var(--radius);
+    padding: 2rem;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card-main::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,110,245,.25) 0%, transparent 70%);
+  }
+
+  .about-card-label {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    margin-bottom: .75rem;
+  }
+
+  .about-card-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: .3rem;
+  }
+
+  .about-card-value span { color: var(--accent); }
+
+  .about-card-sub {
+    font-size: .85rem;
+    color: rgba(255,255,255,.45);
+  }
+
+  .about-card-mini {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    min-width: 160px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.1);
+  }
+
+  .mini-label {
+    font-size: .7rem;
+    color: var(--muted);
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+  }
+
+  .mini-langs {
+    display: flex; flex-wrap: wrap; gap: .3rem;
+    margin-top: .5rem;
+  }
+
+  .mini-lang {
+    font-size: .7rem;
+    font-weight: 600;
+    padding: .2rem .5rem;
+    background: var(--surface);
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  .about-text { max-width: 520px; }
+
+  .about-tagline {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: .75rem;
+  }
+
+  .about-headline {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -.025em;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-body {
+    font-size: .95rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .6rem;
+  }
+
+  .skill-item {
+    display: flex; align-items: center; gap: .5rem;
+    font-size: .85rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .skill-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--surface); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-form-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    display: flex; flex-direction: column; gap: .4rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: .02em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: .75rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: .9rem;
+    color: var(--ink);
+    background: var(--white);
+    outline: none;
+    transition: border-color .2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(91,110,245,.1);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 130px; }
+
+  .form-submit {
+    width: 100%;
+    padding: .9rem;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .2s, transform .2s;
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+  }
+
+  .form-submit:hover { opacity: .88; transform: translateY(-1px); }
+
+  .form-note {
+    font-size: .75rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: .75rem;
+  }
+
+  .contact-info { padding-top: .5rem; }
+
+  .contact-info-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    letter-spacing: -.02em;
+  }
+
+  .contact-info-body {
+    font-size: .9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+
+  .contact-item {
+    display: flex; align-items: center; gap: .85rem;
+  }
+
+  .contact-item-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(91,110,245,.1);
+    border: 1px solid rgba(91,110,245,.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item-text { line-height: 1; }
+
+  .contact-item-label {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .2rem;
+  }
+
+  .contact-item-value {
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .social-links {
+    display: flex; gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .social-link {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background .2s, color .2s;
+  }
+
+  .social-link:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 3rem 5%;
+  }
+
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  .footer-brand {
+    display: flex; align-items: center; gap: .75rem;
+  }
+
+  .footer-name {
+    font-family: 'Syne', sans-serif;
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .footer-name span { color: var(--accent); }
+
+  .footer-copy {
+    font-size: .8rem;
+    color: rgba(255,255,255,.35);
+    margin-top: .2rem;
+  }
+
+  .footer-links {
+    display: flex; gap: 1.5rem; list-style: none;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,.4);
+    text-decoration: none;
+    font-size: .8rem;
+    transition: color .2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-social {
+    display: flex; gap: .75rem;
+  }
+
+  .footer-social a {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background .2s, color .2s;
+  }
+
+  .footer-social a:hover {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
+  }
+
+  /* ── SUCCESS MSG ── */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .form-success.show { display: block; }
+
+  .form-success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-success h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: .5rem;
+  }
+
+  .form-success p {
+    font-size: .9rem;
+    color: var(--muted);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner,
+    .products-grid,
+    .caps-grid,
+    .about-grid,
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-card-mini { display: none; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="34" height="34" rx="8" fill="#1e2540"/>
+      <circle cx="17" cy="17" r="7" fill="none" stroke="#5b6ef5" stroke-width="2.2"/>
+      <circle cx="17" cy="17" r="2.5" fill="#5b6ef5"/>
+      <line x1="17" y1="7" x2="17" y2="10" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="17" y1="24" x2="17" y2="27" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="7" y1="17" x2="10" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="24" y1="17" x2="27" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-name">Radian <span>Data</span> Pintar</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Smart Data Solutions</div>
+      <h1>Empowering Businesses with <em>Intelligent Data</em></h1>
+      <p class="hero-sub">A consolidated portfolio of innovative data products — built to give your business sharper insights, stronger networks, and faster decisions.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">
+          Explore Our Products
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">10<span>M+</span></div>
+          <div class="stat-label">Data Points</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">Made in ID</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="data-card-stack">
+        <div class="data-ring"></div>
+        <div class="data-ring"></div>
+        <div class="data-ring"></div>
+        <div class="data-orb"></div>
+        <div class="data-dot"></div>
+        <div class="data-dot"></div>
+        <div class="data-dot"></div>
+        <div class="orb-center">
+          <span class="orb-icon">📡</span>
+          <span class="orb-label">Data</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-inner">
+    <p class="section-eyebrow">Our Portfolio</p>
+    <h2 class="section-title">Products Built for<br/>the Data Age</h2>
+    <p class="section-sub">Three focused tools, each solving a distinct problem — from network intelligence to market data to identity security.</p>
+
+    <div class="products-grid">
+
+      <!-- KenalApp -->
+      <div class="product-card">
+        <div class="product-header kenal">
+          <div class="product-header-particles"></div>
+          <div class="product-icon-wrap kenal">🤝</div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag kenal">Networking</span>
+          <h3 class="product-name">KenalApp</h3>
+          <p class="product-desc">Remember everyone you meet. Build your professional network effortlessly with intelligent contact capture and sync.</p>
+          <ul class="product-features">
+            <li class="kenal">Scan business cards & media instantly</li>
+            <li class="kenal">Voice-to-contact data entry</li>
+            <li class="kenal">Auto-sync across all your devices</li>
+            <li class="kenal">Smart network intelligence</li>
+          </ul>
+          <a href="https://kenal.app" target="_blank" rel="noopener" class="product-link kenal">
+            Visit Kenal.app
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tmpt -->
+      <div class="product-card">
+        <div class="product-header tmpt">
+          <div class="product-header-particles"></div>
+          <div class="product-icon-wrap tmpt">🔐</div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag tmpt">Security</span>
+          <h3 class="product-name">Tmpt</h3>
+          <p class="product-desc">Secure your digital identity. Manage credentials and passwords in a private, end-to-end encrypted vault you can trust.</p>
+          <ul class="product-features">
+            <li class="tmpt">End-to-end encrypted storage</li>
+            <li class="tmpt">Cross-device credential management</li>
+            <li class="tmpt">Zero-knowledge architecture</li>
+            <li class="tmpt">Private digital identity layer</li>
+          </ul>
+          <a href="https://tmpt.my.id" target="_blank" rel="noopener" class="product-link tmpt">
+            Visit Tmpt.my.id
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Taliti -->
+      <div class="product-card">
+        <div class="product-header taliti">
+          <div class="product-header-particles"></div>
+          <div class="product-icon-wrap taliti">📊</div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag taliti">Data Intelligence</span>
+          <h3 class="product-name">Taliti</h3>
+          <p class="product-desc">Access millions of business data points, market intelligence, and consumer trends — all in one integrated platform. Ready-to-use, no complex setup required.</p>
+          <ul class="product-features">
+            <li class="taliti">Verified B2B business database</li>
+            <li class="taliti">Real-time market & competitor intel</li>
+            <li class="taliti">News & sentiment aggregation</li>
+            <li class="taliti">On-demand custom datasets</li>
+          </ul>
+          <a href="https://taliti.id" target="_blank" rel="noopener" class="product-link taliti">
+            Visit Taliti.id
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="section-inner">
+    <p class="section-eyebrow">What We Do</p>
+    <h2 class="section-title" style="color:white">Our Core Capabilities</h2>
+    <p class="section-sub">From raw data pipelines to production-grade AI — we bring deep technical expertise across the full data stack.</p>
+
+    <div class="caps-grid">
+      <div class="cap-card">
+        <div class="cap-icon">📈</div>
+        <h3 class="cap-title">Data Analysis &amp; Visualization</h3>
+        <p class="cap-desc">Transform raw datasets into clear, actionable visual narratives. Statistical modeling, dashboard design, and custom reporting pipelines.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🏗️</div>
+        <h3 class="cap-title">Data Architecture &amp; Pipeline Design</h3>
+        <p class="cap-desc">Design scalable, resilient data infrastructure. From ingestion to transformation, we architect pipelines built for modern workloads.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🤖</div>
+        <h3 class="cap-title">Machine Learning &amp; AI Development</h3>
+        <p class="cap-desc">End-to-end ML solutions — from feature engineering and model training to production deployment with monitoring and feedback loops.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🗄️</div>
+        <h3 class="cap-title">Database Management</h3>
+        <p class="cap-desc">Expert-level PostgreSQL, Redis, and distributed database design. Query optimization, schema design, and high-availability setups.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🕸️</div>
+        <h3 class="cap-title">Web Crawling &amp; Data Extraction</h3>
+        <p class="cap-desc">Large-scale data collection from e-commerce, news, social media, and business directories — structured and ready for analysis.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">🔢</div>
+        <h3 class="cap-title">Statistical Modeling</h3>
+        <p class="cap-desc">Rigorous quantitative methods using Python, R, and MATLAB. Predictive analytics, hypothesis testing, and causal inference.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-card-main">
+          <div class="about-card-label">Our Stack</div>
+          <div class="about-card-value">6<span>+</span></div>
+          <div style="color:rgba(255,255,255,.5);font-size:.9rem;margin-bottom:1.5rem">Programming Languages</div>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">Python</span>
+            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">R</span>
+            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">SQL</span>
+            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">Julia</span>
+            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">MATLAB</span>
+            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">SAS</span>
+          </div>
+        </div>
+        <div class="about-card-mini">
+          <div class="mini-label">Est. Indonesia</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#0d1224;margin-top:.1rem">🇮🇩 Proudly Local</div>
+          <div style="font-size:.75rem;color:#6b7280;margin-top:.3rem">Data technology for<br/>Indonesian businesses</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="about-tagline">About Radian</div>
+        <h2 class="about-headline">Innovation-led data technology, built in Indonesia</h2>
+        <p class="about-body">We are Radian Data Pintar — a data technology company with a vision to be an innovation leader in smart, efficient data processing and analysis. We serve businesses that want to harness the power of data without the complexity.</p>
+        <p class="about-body">Our mission is to deliver accurate, fast, and reliable data services — developing tools that make it genuinely easier for companies to manage, understand, and act on their data.</p>
+        <div class="skills-list">
+          <div class="skill-item"><div class="skill-dot"></div>Data Analysis & Visualization</div>
+          <div class="skill-item"><div class="skill-dot"></div>Machine Learning & AI</div>
+          <div class="skill-item"><div class="skill-dot"></div>Data Architecture</div>
+          <div class="skill-item"><div class="skill-dot"></div>Statistical Modeling</div>
+          <div class="skill-item"><div class="skill-dot"></div>Database Management</div>
+          <div class="skill-item"><div class="skill-dot"></div>Programming & Scripting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-eyebrow">Work With Us</p>
+    <h2 class="section-title">Let's Build Something Together</h2>
+    <p class="section-sub">Whether you need a custom dataset, a data platform, or a full AI solution — we'd love to hear from you.</p>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-form-card">
+          <div id="form-fields">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Your Name</label>
+                <input type="text" id="fname" name="name" placeholder="Budi Santoso" required/>
+              </div>
+              <div class="form-group">
+                <label for="femail">Email Address</label>
+                <input type="email" id="femail" name="email" placeholder="budi@perusahaan.com" required/>
+              </div>
             </div>
-
-
-            <!-- Contact -->
-            <section id="contact" class="py-5">
-                <div class="container px-5">
-                    <!-- Contact form-->
-                    <div class="bg-light rounded-4 py-5 px-4 px-md-5">
-                        <div class="text-center mb-5">
-                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                            <h1 class="fw-bolder">Get in touch</h1>
-                            <p class="lead fw-normal text-muted mb-0">Let's work together!</p>
-                        </div>
-                        <div class="row gx-5 justify-content-center">
-                            <div class="col-lg-8 col-xl-6">
-                                
-                                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYZCswPKUDxiWkvQtCsJc5fj5cIC3OUfL1HqC-O1oWEoBk3w/viewform?embedded=true" width="640" height="821" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
-                               
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center mt-5">
-                            <div class="d-flex justify-content-center fs-2 gap-4">
-                                <!-- <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
-                                <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a> -->
-                                <!-- <a class="text-gradient" href="https://github.com/radianapp" target="_blank"><i class="bi bi-github"></i></a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            
-
-        </main>
-
-        <!-- Footer-->
-        <footer class="bg-white py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0"><sup>&copy;</sup><small>2024 Radian Data Pintar</small></div></div>
-                    <div class="col-auto">
-                        <a class="small" href="terms.html">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="text-gradient" href="https://github.com/radianapp" target="_blank"><i class="bi bi-github"></i></a>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label for="fsubject">Subject</label>
+              <select id="fsubject" name="subject">
+                <option value="">Select a topic...</option>
+                <option>Data Analysis Project</option>
+                <option>KenalApp Inquiry</option>
+                <option>Tmpt Inquiry</option>
+                <option>Taliti Data Access</option>
+                <option>Custom Data Solution</option>
+                <option>Partnership</option>
+                <option>Other</option>
+              </select>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" name="message" placeholder="Tell us about your project or question..."></textarea>
+            </div>
+            <button type="button" class="form-submit" onclick="submitForm()">
+              Send Message
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><path d="M2 8h12M10 4l4 4-4 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form-note">✔ Powered by Formspree &nbsp;·&nbsp; We respond within 1 business day</p>
+          </div>
+          <div class="form-success" id="form-success">
+            <div class="form-success-icon">✅</div>
+            <h3>Message sent!</h3>
+            <p>Thanks for reaching out. We'll get back to you within one business day.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="contact-info">
+        <h3 class="contact-info-title">Contact Information</h3>
+        <p class="contact-info-body">Reach us directly or use the form. We're always open to discussing new projects, ideas, and collaborations.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">hello@radian.web.id</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🌐</div>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Website</div>
+              <div class="contact-item-value">radian.web.id</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Indonesia 🇮🇩</div>
+            </div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/radianapp" target="_blank" rel="noopener" class="social-link" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="#" class="social-link" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="social-link" title="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="34" height="34" rx="8" fill="#1e2540"/>
+        <circle cx="17" cy="17" r="7" fill="none" stroke="#5b6ef5" stroke-width="2.2"/>
+        <circle cx="17" cy="17" r="2.5" fill="#5b6ef5"/>
+        <line x1="17" y1="7" x2="17" y2="10" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="17" y1="24" x2="17" y2="27" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="7" y1="17" x2="10" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="24" y1="17" x2="27" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="footer-name">Radian <span>Data</span> Pintar</div>
+        <div class="footer-copy">© 2024 Radian Data Pintar. All rights reserved.</div>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://radian.web.id/terms.html" target="_blank">Terms</a></li>
+    </ul>
+    <div class="footer-social">
+      <a href="https://github.com/radianapp" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+      <a href="#" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+async function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const subject = document.getElementById('fsubject').value;
+  const message = document.getElementById('fmessage').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in Name, Email, and Message.');
+    return;
+  }
+
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, email, subject, message })
+    });
+
+    if (res.ok) {
+      document.getElementById('form-fields').style.display = 'none';
+      document.getElementById('form-success').classList.add('show');
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch {
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+    alert('Something went wrong. Please try emailing us directly at hello@radian.web.id');
+  }
+}
+</script>
+</body>
 </html>
