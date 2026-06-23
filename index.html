@@ -28,6 +28,8 @@
     font-size: 16px;
   }
 
+  /* dark theme removed — site uses light theme only */
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -47,10 +49,10 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%;
     height: 68px;
-    background: rgba(13,18,36,.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,.06);
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-brand {
@@ -66,7 +68,7 @@
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     font-size: 1rem;
-    color: var(--white);
+    color: var(--ink);
     letter-spacing: -.01em;
   }
 
@@ -77,14 +79,14 @@
   }
 
   .nav-links a {
-    color: rgba(255,255,255,.65);
+    color: rgba(13,18,36,.75);
     text-decoration: none;
     font-size: .875rem;
     font-weight: 500;
     transition: color .2s;
   }
 
-  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover { color: var(--ink); }
 
   .nav-cta {
     background: var(--accent);
@@ -96,10 +98,22 @@
 
   .nav-cta:hover { opacity: .85; }
 
+  .nav-toggle {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: .35rem .6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .nav-toggle:hover { background: rgba(0,0,0,.04); }
+  /* dark theme removed */
+
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    background: var(--ink);
+    background: linear-gradient(180deg, var(--surface), #ffffff);
     display: flex; align-items: center;
     padding: 120px 5% 80px;
     position: relative;
@@ -134,7 +148,7 @@
   }
 
   .hero-inner {
-    position: relative; z-index: 1;
+    position: relative; z-index: 2;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 4rem; align-items: center;
     max-width: 1200px; margin: 0 auto; width: 100%;
@@ -142,9 +156,9 @@
 
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(91,110,245,.15);
-    border: 1px solid rgba(91,110,245,.35);
-    color: #8b98fa;
+    background: rgba(91,110,245,.08);
+    border: 1px solid rgba(91,110,245,.18);
+    color: var(--accent);
     font-size: .8rem;
     font-weight: 600;
     letter-spacing: .06em;
@@ -170,7 +184,7 @@
   .hero h1 {
     font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 800;
-    color: var(--white);
+    color: var(--ink);
     line-height: 1.12;
     letter-spacing: -.03em;
     margin-bottom: 1.25rem;
@@ -185,7 +199,7 @@
   }
 
   .hero-sub {
-    color: rgba(255,255,255,.55);
+    color: var(--muted);
     font-size: 1.1rem;
     line-height: 1.7;
     max-width: 440px;
@@ -215,9 +229,9 @@
 
   .btn-ghost {
     display: inline-flex; align-items: center; gap: .5rem;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.15);
-    color: rgba(255,255,255,.8);
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink);
     text-decoration: none;
     padding: .85rem 1.8rem;
     border-radius: 10px;
@@ -226,7 +240,7 @@
     transition: background .2s;
   }
 
-  .btn-ghost:hover { background: rgba(255,255,255,.12); }
+  .btn-ghost:hover { background: rgba(13,18,36,.03); }
 
   /* Hero visual */
   .hero-visual {
@@ -354,7 +368,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 1.8rem;
     font-weight: 800;
-    color: var(--white);
+    color: var(--ink);
     line-height: 1;
   }
 
@@ -362,11 +376,13 @@
 
   .stat-label {
     font-size: .75rem;
-    color: rgba(255,255,255,.4);
+    color: var(--muted);
     margin-top: .2rem;
     text-transform: uppercase;
     letter-spacing: .05em;
   }
+
+  /* dark theme removed */
 
   /* ── SECTION COMMONS ── */
   section { padding: 100px 5%; }
@@ -381,6 +397,8 @@
     color: var(--accent);
     margin-bottom: .75rem;
   }
+
+  /* dark theme removed */
 
   .section-title {
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
@@ -556,13 +574,14 @@
   .product-link:hover svg { transform: translateX(3px); }
 
   /* ── CAPABILITIES ── */
-  #capabilities { background: var(--ink); }
+  /* default: light theme */
+  #capabilities { background: var(--surface); }
 
   #capabilities .section-eyebrow { color: #8b98fa; }
 
-  #capabilities .section-title { color: var(--white); }
+  #capabilities .section-title { color: var(--ink); }
 
-  #capabilities .section-sub { color: rgba(255,255,255,.5); }
+  #capabilities .section-sub { color: var(--muted); }
 
   .caps-grid {
     display: grid;
@@ -571,42 +590,46 @@
   }
 
   .cap-card {
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.08);
+    background: var(--white);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 2rem;
     transition: background .3s, border-color .3s;
+    color: var(--ink);
   }
 
   .cap-card:hover {
-    background: rgba(91,110,245,.08);
-    border-color: rgba(91,110,245,.25);
+    background: rgba(91,110,245,.04);
+    border-color: rgba(91,110,245,.12);
   }
 
   .cap-icon {
     width: 48px; height: 48px;
     border-radius: 12px;
-    background: rgba(91,110,245,.15);
-    border: 1px solid rgba(91,110,245,.25);
+    background: rgba(91,110,245,.08);
+    border: 1px solid rgba(91,110,245,.12);
     display: flex; align-items: center; justify-content: center;
     font-size: 1.3rem;
     margin-bottom: 1.25rem;
+    color: var(--accent);
   }
 
   .cap-title {
     font-family: 'Syne', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--ink);
     margin-bottom: .6rem;
     letter-spacing: -.01em;
   }
 
   .cap-desc {
     font-size: .875rem;
-    color: rgba(255,255,255,.45);
+    color: var(--muted);
     line-height: 1.65;
   }
+
+  /* dark theme removed for capabilities */
 
   /* ── ABOUT ── */
   #about { background: var(--white); }
@@ -623,12 +646,13 @@
   }
 
   .about-card-main {
-    background: var(--ink);
+    background: var(--white);
     border-radius: var(--radius);
     padding: 2rem;
-    color: var(--white);
+    color: var(--ink);
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--border);
   }
 
   .about-card-main::before {
@@ -653,7 +677,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--white);
+    color: var(--ink);
     line-height: 1;
     margin-bottom: .3rem;
   }
@@ -675,8 +699,11 @@
     border-radius: var(--radius-sm);
     padding: 1rem 1.25rem;
     min-width: 160px;
-    box-shadow: 0 10px 40px rgba(0,0,0,.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,.08);
+    color: var(--ink);
   }
+
+  /* dark theme removed for about/products/contact */
 
   .mini-label {
     font-size: .7rem;
@@ -905,7 +932,7 @@
 
   /* ── FOOTER ── */
   footer {
-    background: var(--ink);
+    background: var(--surface);
     padding: 3rem 5%;
   }
 
@@ -923,16 +950,18 @@
     font-family: 'Syne', sans-serif;
     font-size: .95rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--ink);
   }
 
   .footer-name span { color: var(--accent); }
 
   .footer-copy {
     font-size: .8rem;
-    color: rgba(255,255,255,.35);
+    color: var(--muted);
     margin-top: .2rem;
   }
+
+  /* dark theme removed for footer */
 
   .footer-links {
     display: flex; gap: 1.5rem; list-style: none;
@@ -1031,6 +1060,7 @@
     <li><a href="#capabilities">Capabilities</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    <!-- theme toggle removed; site uses light theme only -->
   </ul>
 </nav>
 
@@ -1170,7 +1200,7 @@
 <section id="capabilities">
   <div class="section-inner">
     <p class="section-eyebrow">What We Do</p>
-    <h2 class="section-title" style="color:white">Our Core Capabilities</h2>
+    <h2 class="section-title">Our Core Capabilities</h2>
     <p class="section-sub">From raw data pipelines to production-grade AI — we bring deep technical expertise across the full data stack.</p>
 
     <div class="caps-grid">
@@ -1216,7 +1246,7 @@
         <div class="about-card-main">
           <div class="about-card-label">Our Stack</div>
           <div class="about-card-value">6<span>+</span></div>
-          <div style="color:rgba(255,255,255,.5);font-size:.9rem;margin-bottom:1.5rem">Programming Languages</div>
+          <div style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem">Programming Languages</div>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap">
             <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">Python</span>
             <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">R</span>
@@ -1415,6 +1445,10 @@ async function submitForm() {
     alert('Something went wrong. Please try emailing us directly at heyradian@gmail.com');
   }
 }
+</script>
+</script>
+<script>
+    /* theme toggle script removed; keep light theme */
 </script>
 </body>
 </html>
