@@ -1,1454 +1,863 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-lang="id">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Radian Data Platform — Smart Data Solutions</title>
-<meta name="description" content="A consolidated portfolio of innovative data products for modern businesses."/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1224'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%235b6ef5' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%235b6ef5'/%3E%3Cline x1='32' y1='10' x2='32' y2='18' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='32' y1='46' x2='32' y2='54' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='10' y1='32' x2='18' y2='32' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='46' y1='32' x2='54' y2='32' stroke='%235b6ef5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet"/> -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --ink: #0d1224;
-    --ink-soft: #1e2540;
-    --accent: #5b6ef5;
-    --accent-glow: rgba(91,110,245,.15);
-    --coral: #e85d4a;
-    --muted: #6b7280;
-    --surface: #f5f6fa;
-    --white: #ffffff;
-    --border: rgba(0,0,0,.08);
-    --radius: 16px;
-    --radius-sm: 10px;
-    font-size: 16px;
-  }
-
-  /* dark theme removed — site uses light theme only */
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    color: var(--ink);
-    background: var(--white);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3, h4, h5 {
-    font-family: 'Syne', sans-serif;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;
-    height: 68px;
-    background: rgba(255,255,255,.94);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-brand {
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none;
-  }
-
-  .nav-logo {
-    width: 34px; height: 34px;
-  }
-
-  .nav-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--ink);
-    letter-spacing: -.01em;
-  }
-
-  .nav-name span { color: var(--accent); }
-
-  .nav-links {
-    display: flex; gap: 2rem; list-style: none;
-  }
-
-  .nav-links a {
-    color: rgba(13,18,36,.75);
-    text-decoration: none;
-    font-size: .875rem;
-    font-weight: 500;
-    transition: color .2s;
-  }
-
-  .nav-links a:hover { color: var(--ink); }
-
-  .nav-cta {
-    background: var(--accent);
-    color: var(--white) !important;
-    padding: .5rem 1.2rem;
-    border-radius: 8px;
-    transition: opacity .2s !important;
-  }
-
-  .nav-cta:hover { opacity: .85; }
-
-  .nav-toggle {
-    background: transparent;
-    border: 1px solid transparent;
-    padding: .35rem .6rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: var(--ink);
-  }
-  .nav-toggle:hover { background: rgba(0,0,0,.04); }
-  /* dark theme removed */
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(180deg, var(--surface), #ffffff);
-    display: flex; align-items: center;
-    padding: 120px 5% 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(91,110,245,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(91,110,245,.06) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-  }
-
-  .hero-blob {
-    position: absolute;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(91,110,245,.18) 0%, transparent 70%);
-    top: -100px; right: -100px;
-    pointer-events: none;
-  }
-
-  .hero-blob2 {
-    position: absolute;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(232,93,74,.12) 0%, transparent 70%);
-    bottom: -80px; left: 5%;
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    position: relative; z-index: 2;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: center;
-    max-width: 1200px; margin: 0 auto; width: 100%;
-  }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(91,110,245,.08);
-    border: 1px solid rgba(91,110,245,.18);
-    color: var(--accent);
-    font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    padding: .4rem .9rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .3; }
-  }
-
-  .hero h1 {
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1.12;
-    letter-spacing: -.03em;
-    margin-bottom: 1.25rem;
-  }
-
-  .hero h1 em {
-    font-style: normal;
-    background: linear-gradient(135deg, #5b6ef5, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-sub {
-    color: var(--muted);
-    font-size: 1.1rem;
-    line-height: 1.7;
-    max-width: 440px;
-    margin-bottom: 2rem;
-  }
-
-  .hero-actions {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: .5rem;
-    background: var(--accent);
-    color: var(--white);
-    text-decoration: none;
-    padding: .85rem 1.8rem;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: .95rem;
-    transition: transform .2s, box-shadow .2s;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(91,110,245,.4);
-  }
-
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: .5rem;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--ink);
-    text-decoration: none;
-    padding: .85rem 1.8rem;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: .95rem;
-    transition: background .2s;
-  }
-
-  .btn-ghost:hover { background: rgba(13,18,36,.03); }
-
-  /* Hero visual */
-  .hero-visual {
-    display: flex; justify-content: flex-end;
-  }
-
-  .data-card-stack {
-    position: relative;
-    width: 340px; height: 340px;
-  }
-
-  .data-orb {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, #5b6ef5, #a78bfa, #e85d4a, #5b6ef5);
-    animation: spin 8s linear infinite;
-    opacity: .8;
-  }
-
-  .data-orb::after {
-    content: '';
-    position: absolute;
-    inset: 12px;
-    border-radius: 50%;
-    background: #0d1224;
-  }
-
-  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-
-  .data-ring {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    border: 1px solid rgba(91,110,245,.25);
-    animation: ringPulse 3s ease-in-out infinite;
-  }
-
-  .data-ring:nth-child(2) { width: 220px; height: 220px; animation-delay: 0s; }
-  .data-ring:nth-child(3) { width: 280px; height: 280px; animation-delay: .5s; }
-  .data-ring:nth-child(4) { width: 340px; height: 340px; animation-delay: 1s; }
-
-  @keyframes ringPulse {
-    0%, 100% { opacity: .4; }
-    50% { opacity: .1; }
-  }
-
-  .data-dot {
-    position: absolute;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-    top: 50%; left: 50%;
-  }
-
-  .data-dot:nth-child(5) {
-    transform: rotate(0deg) translate(-110px) rotate(0deg);
-    animation: orbitDot 4s linear infinite;
-  }
-
-  .data-dot:nth-child(6) {
-    background: var(--coral);
-    transform: rotate(120deg) translate(-140px) rotate(-120deg);
-    animation: orbitDot2 5s linear infinite;
-  }
-
-  .data-dot:nth-child(7) {
-    background: #a78bfa;
-    transform: rotate(240deg) translate(-90px) rotate(-240deg);
-    animation: orbitDot3 3s linear infinite;
-  }
-
-  @keyframes orbitDot {
-    from { transform: rotate(0deg) translate(-110px) rotate(0deg); }
-    to { transform: rotate(360deg) translate(-110px) rotate(-360deg); }
-  }
-
-  @keyframes orbitDot2 {
-    from { transform: rotate(120deg) translate(-140px) rotate(-120deg); }
-    to { transform: rotate(480deg) translate(-140px) rotate(-480deg); }
-  }
-
-  @keyframes orbitDot3 {
-    from { transform: rotate(240deg) translate(-90px) rotate(-240deg); }
-    to { transform: rotate(600deg) translate(-90px) rotate(-600deg); }
-  }
-
-  .orb-center {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    text-align: center;
-  }
-
-  .orb-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: .25rem;
-  }
-
-  .orb-label {
-    font-family: 'Syne', sans-serif;
-    font-size: .7rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-
-  /* Hero stats */
-  .hero-stats {
-    display: flex; gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .stat {
-    text-align: left;
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1;
-  }
-
-  .stat-num span { color: var(--accent); }
-
-  .stat-label {
-    font-size: .75rem;
-    color: var(--muted);
-    margin-top: .2rem;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-  }
-
-  /* dark theme removed */
-
-  /* ── SECTION COMMONS ── */
-  section { padding: 100px 5%; }
-
-  .section-inner { max-width: 1200px; margin: 0 auto; }
-
-  .section-eyebrow {
-    font-size: .8rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: .75rem;
-  }
-
-  /* dark theme removed */
-
-  .section-title {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 800;
-    color: var(--ink);
-    letter-spacing: -.025em;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-
-  .section-sub {
-    font-size: 1.05rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 560px;
-    margin-bottom: 3.5rem;
-  }
-
-  /* ── PRODUCTS ── */
-  #products { background: var(--surface); }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .product-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--border);
-    transition: transform .3s, box-shadow .3s;
-    display: flex; flex-direction: column;
-  }
-
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(0,0,0,.1);
-  }
-
-  .product-header {
-    height: 160px;
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .product-header.kenal {
-    background: linear-gradient(135deg, #1a1f3c, #2d3561);
-  }
-
-  .product-header.tmpt {
-    background: linear-gradient(135deg, #0f2027, #1a3a4a);
-  }
-
-  .product-header.taliti {
-    background: linear-gradient(135deg, #0f2d1a, #143d28);
-  }
-
-  .product-icon-wrap {
-    width: 80px; height: 80px;
-    border-radius: 20px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.2rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .product-icon-wrap.kenal {
-    background: rgba(91,110,245,.2);
-    border: 1px solid rgba(91,110,245,.4);
-  }
-
-  .product-icon-wrap.tmpt {
-    background: rgba(20,184,166,.2);
-    border: 1px solid rgba(20,184,166,.4);
-  }
-
-  .product-icon-wrap.taliti {
-    background: rgba(34,197,94,.2);
-    border: 1px solid rgba(34,197,94,.4);
-  }
-
-  .product-header-particles {
-    position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  .product-body {
-    padding: 1.5rem;
-    flex: 1; display: flex; flex-direction: column;
-  }
-
-  .product-tag {
-    display: inline-block;
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    padding: .3rem .7rem;
-    border-radius: 100px;
-    margin-bottom: .75rem;
-  }
-
-  .product-tag.kenal { background: rgba(91,110,245,.1); color: var(--accent); }
-  .product-tag.tmpt { background: rgba(20,184,166,.1); color: #0d9488; }
-  .product-tag.taliti { background: rgba(34,197,94,.1); color: #16a34a; }
-
-  .product-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin-bottom: .5rem;
-    letter-spacing: -.02em;
-  }
-
-  .product-desc {
-    font-size: .9rem;
-    color: var(--muted);
-    line-height: 1.65;
-    flex: 1;
-    margin-bottom: 1.25rem;
-  }
-
-  .product-features {
-    list-style: none;
-    margin-bottom: 1.5rem;
-  }
-
-  .product-features li {
-    display: flex; align-items: flex-start; gap: .5rem;
-    font-size: .83rem;
-    color: var(--muted);
-    margin-bottom: .4rem;
-  }
-
-  .product-features li::before {
-    content: '✓';
-    font-weight: 700;
-    margin-top: 1px;
-    flex-shrink: 0;
-  }
-
-  .product-features li.kenal::before { color: var(--accent); }
-  .product-features li.tmpt::before { color: #0d9488; }
-  .product-features li.taliti::before { color: #16a34a; }
-
-  .product-link {
-    display: inline-flex; align-items: center; gap: .4rem;
-    font-weight: 600;
-    font-size: .875rem;
-    text-decoration: none;
-    padding: .65rem 1.25rem;
-    border-radius: 8px;
-    transition: opacity .2s, transform .2s;
-    width: fit-content;
-  }
-
-  .product-link:hover { opacity: .85; transform: translateX(2px); }
-
-  .product-link.kenal { background: rgba(91,110,245,.1); color: var(--accent); }
-  .product-link.tmpt { background: rgba(20,184,166,.1); color: #0d9488; }
-  .product-link.taliti { background: rgba(34,197,94,.1); color: #16a34a; }
-
-  .product-link svg {
-    width: 14px; height: 14px;
-    transition: transform .2s;
-  }
-
-  .product-link:hover svg { transform: translateX(3px); }
-
-  /* ── CAPABILITIES ── */
-  /* default: light theme */
-  #capabilities { background: var(--surface); }
-
-  #capabilities .section-eyebrow { color: #8b98fa; }
-
-  #capabilities .section-title { color: var(--ink); }
-
-  #capabilities .section-sub { color: var(--muted); }
-
-  .caps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .cap-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem;
-    transition: background .3s, border-color .3s;
-    color: var(--ink);
-  }
-
-  .cap-card:hover {
-    background: rgba(91,110,245,.04);
-    border-color: rgba(91,110,245,.12);
-  }
-
-  .cap-icon {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    background: rgba(91,110,245,.08);
-    border: 1px solid rgba(91,110,245,.12);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: 1.25rem;
-    color: var(--accent);
-  }
-
-  .cap-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: .6rem;
-    letter-spacing: -.01em;
-  }
-
-  .cap-desc {
-    font-size: .875rem;
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  /* dark theme removed for capabilities */
-
-  /* ── ABOUT ── */
-  #about { background: var(--white); }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about-visual {
-    position: relative;
-  }
-
-  .about-card-main {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 2rem;
-    color: var(--ink);
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
-  .about-card-main::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(91,110,245,.25) 0%, transparent 70%);
-  }
-
-  .about-card-label {
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.4);
-    margin-bottom: .75rem;
-  }
-
-  .about-card-value {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: .3rem;
-  }
-
-  .about-card-value span { color: var(--accent); }
-
-  .about-card-sub {
-    font-size: .85rem;
-    color: rgba(255,255,255,.45);
-  }
-
-  .about-card-mini {
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 1rem 1.25rem;
-    min-width: 160px;
-    box-shadow: 0 10px 40px rgba(0,0,0,.08);
-    color: var(--ink);
-  }
-
-  /* dark theme removed for about/products/contact */
-
-  .mini-label {
-    font-size: .7rem;
-    color: var(--muted);
-    margin-bottom: .3rem;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    font-weight: 600;
-  }
-
-  .mini-langs {
-    display: flex; flex-wrap: wrap; gap: .3rem;
-    margin-top: .5rem;
-  }
-
-  .mini-lang {
-    font-size: .7rem;
-    font-weight: 600;
-    padding: .2rem .5rem;
-    background: var(--surface);
-    border-radius: 4px;
-    color: var(--ink);
-  }
-
-  .about-text { max-width: 520px; }
-
-  .about-tagline {
-    font-family: 'Syne', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    margin-bottom: .75rem;
-  }
-
-  .about-headline {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--ink);
-    letter-spacing: -.025em;
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
-  }
-
-  .about-body {
-    font-size: .95rem;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 2rem;
-  }
-
-  .skills-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: .6rem;
-  }
-
-  .skill-item {
-    display: flex; align-items: center; gap: .5rem;
-    font-size: .85rem;
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  .skill-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  /* ── CONTACT ── */
-  #contact { background: var(--surface); }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .contact-form-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 2.5rem;
-    border: 1px solid var(--border);
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group {
-    display: flex; flex-direction: column; gap: .4rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group label {
-    font-size: .8rem;
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: .02em;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: .75rem 1rem;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: .9rem;
-    color: var(--ink);
-    background: var(--white);
-    outline: none;
-    transition: border-color .2s;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(91,110,245,.1);
-  }
-
-  .form-group textarea { resize: vertical; min-height: 130px; }
-
-  .form-submit {
-    width: 100%;
-    padding: .9rem;
-    background: var(--accent);
-    color: var(--white);
-    border: none;
-    border-radius: 10px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity .2s, transform .2s;
-    display: flex; align-items: center; justify-content: center; gap: .5rem;
-  }
-
-  .form-submit:hover { opacity: .88; transform: translateY(-1px); }
-
-  .form-note {
-    font-size: .75rem;
-    color: var(--muted);
-    text-align: center;
-    margin-top: .75rem;
-  }
-
-  .contact-info { padding-top: .5rem; }
-
-  .contact-info-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin-bottom: 1rem;
-    letter-spacing: -.02em;
-  }
-
-  .contact-info-body {
-    font-size: .9rem;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
-
-  .contact-item {
-    display: flex; align-items: center; gap: .85rem;
-  }
-
-  .contact-item-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    background: rgba(91,110,245,.1);
-    border: 1px solid rgba(91,110,245,.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-
-  .contact-item-text { line-height: 1; }
-
-  .contact-item-label {
-    font-size: .7rem;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: .2rem;
-  }
-
-  .contact-item-value {
-    font-size: .9rem;
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .social-links {
-    display: flex; gap: .75rem;
-    margin-top: 2rem;
-  }
-
-  .social-link {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: background .2s, color .2s;
-  }
-
-  .social-link:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--surface);
-    padding: 3rem 5%;
-  }
-
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1.5rem;
-  }
-
-  .footer-brand {
-    display: flex; align-items: center; gap: .75rem;
-  }
-
-  .footer-name {
-    font-family: 'Syne', sans-serif;
-    font-size: .95rem;
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  .footer-name span { color: var(--accent); }
-
-  .footer-copy {
-    font-size: .8rem;
-    color: var(--muted);
-    margin-top: .2rem;
-  }
-
-  /* dark theme removed for footer */
-
-  .footer-links {
-    display: flex; gap: 1.5rem; list-style: none;
-  }
-
-  .footer-links a {
-    color: rgba(255,255,255,.4);
-    text-decoration: none;
-    font-size: .8rem;
-    transition: color .2s;
-  }
-
-  .footer-links a:hover { color: var(--white); }
-
-  .footer-social {
-    display: flex; gap: .75rem;
-  }
-
-  .footer-social a {
-    width: 36px; height: 36px;
-    border-radius: 8px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,.5);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: background .2s, color .2s;
-  }
-
-  .footer-social a:hover {
-    background: var(--accent);
-    color: var(--white);
-    border-color: var(--accent);
-  }
-
-  /* ── SUCCESS MSG ── */
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .form-success.show { display: block; }
-
-  .form-success-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-success h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin-bottom: .5rem;
-  }
-
-  .form-success p {
-    font-size: .9rem;
-    color: var(--muted);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .hero-inner,
-    .products-grid,
-    .caps-grid,
-    .about-grid,
-    .contact-grid { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .form-row { grid-template-columns: 1fr; }
-    .about-card-mini { display: none; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rahadian Hadi — Software Engineer & System Architect</title>
+  <meta name="description" content="Rahadian Hadi, software engineer di Indonesia. Saya merancang arsitektur, standar pengembangan, starter kit, dan dokumentasi supaya sistem bisa dipakai ulang di banyak proyek.">
+  <meta name="theme-color" content="#EEF5EC">
+  <meta property="og:title" content="Rahadian Hadi — Software Engineer & System Architect">
+  <meta property="og:description" content="Cerita tentang bagaimana sebuah ide menjadi sistem yang bisa dipakai lagi.">
+  <meta property="og:image" content="https://radian.web.id/assets/portrait.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/rh.css">
+  <script src="assets/rh-theme.js"></script>
+  <style>
+    /* ───────── HERO ───────── */
+    .hero {
+      max-width: 76rem; margin: 0 auto;
+      min-height: calc(100svh - 64px);
+      display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+      gap: clamp(2rem, 5vw, 5rem); align-items: center;
+      padding: clamp(2rem, 5vh, 4rem) var(--gutter) clamp(3rem, 8vh, 5rem);
+    }
+    .hello {
+      display: inline-flex; align-items: center; gap: .55rem;
+      font: 600 1rem/1 var(--display);
+      background: var(--paper); border: 1.5px solid var(--ink);
+      border-radius: 999px; padding: .55rem 1rem .55rem .7rem; margin-bottom: 1.6rem;
+    }
+    .hello svg { width: 22px; height: 22px; }
+    .hello .hand { animation: wave 2.4s ease-in-out 1s 2; transform-origin: 70% 80%; }
+    @keyframes wave { 0%,60%,100% { transform: rotate(0); } 10%,30% { transform: rotate(16deg); } 20%,40% { transform: rotate(-8deg); } }
+    .hero-title {
+      font-size: clamp(2.6rem, 5.3vw, 4.7rem);
+      font-weight: 760; line-height: 1.02; letter-spacing: -.022em;
+      font-variation-settings: "opsz" 96;
+      margin-bottom: 1.6rem; max-width: 15ch;
+    }
+    /* the echo: one phrase, copied twice — reuse, made visible */
+    .echo { position: relative; display: inline-block; isolation: isolate; white-space: nowrap; }
+    .echo::before, .echo::after {
+      content: attr(data-text); position: absolute; left: 0; top: 0; z-index: -1;
+      color: transparent; -webkit-text-stroke: 1.5px var(--ink);
+      pointer-events: none;
+    }
+    .echo::before { transform: translate(.08em, .08em); opacity: .5; animation: echo1 1.1s cubic-bezier(.2,.8,.2,1) .35s both; }
+    .echo::after  { transform: translate(.16em, .16em); opacity: .24; animation: echo2 1.1s cubic-bezier(.2,.8,.2,1) .55s both; }
+    @keyframes echo1 { from { transform: none; opacity: 0; } }
+    @keyframes echo2 { from { transform: none; opacity: 0; } }
+    .hero-lead { font-size: clamp(1.15rem, 1.6vw, 1.3rem); max-width: 33rem; color: var(--ink-2); margin-bottom: 2rem; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 2.2rem; }
+    .hero-note { display: flex; align-items: center; gap: .6rem; font: 500 .92rem/1.4 var(--display); color: var(--ink-2); margin: 0; }
+    .hero-note .swatch { flex: none; }
+
+    .portrait-stage { position: relative; aspect-ratio: 520 / 560; width: 100%; max-width: 520px; justify-self: center; }
+    .portrait-stage > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    @keyframes ptr { 0%, 100% { transform: translate(34px, 30px); } 40%, 62% { transform: translate(0, 0); } 50% { transform: translate(1px, 2px) scale(.92); } }
+    @keyframes knob { 0%, 35% { transform: translateX(0); } 50%, 100% { transform: translateX(16px); } }
+    @keyframes press { 0%, 44%, 60%, 100% { transform: scale(1); } 50% { transform: scale(.94); } }
+    .ptr { animation: ptr 5s ease-in-out infinite; }
+    .knob { animation: knob 5s ease-in-out infinite; }
+    .press { animation: press 5s ease-in-out infinite; }
+    .orbit { animation: spin 60s linear infinite; }
+    .gear { animation: spin 9s linear infinite; }
+    .bob1 { animation: bob 5s ease-in-out infinite; }
+    .bob2 { animation: bob 6.5s ease-in-out -2s infinite; }
+    .tw1 { animation: twinkle 3s ease-in-out infinite; }
+    .tw2 { animation: twinkle 3.6s ease-in-out -1.2s infinite; }
+    .tw3 { animation: twinkle 4.2s ease-in-out -2.4s infinite; }
+
+    /* ───────── SECTION SHELL ───────── */
+    .section { padding: clamp(4.5rem, 11vw, 8rem) var(--gutter); }
+    .wrap { max-width: 72rem; margin: 0 auto; }
+    .section-title { font-size: clamp(2.2rem, 4.6vw, 3.5rem); margin-bottom: 1.2rem; max-width: 18ch; }
+    .section-lead { max-width: var(--measure); color: var(--ink-2); font-size: 1.25rem; }
+
+    /* ───────── STORY ───────── */
+    .story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(2rem, 6vw, 6rem); margin-top: 2rem; }
+    .chapter { min-height: 82vh; display: flex; flex-direction: column; justify-content: center; padding: 3rem 0; max-width: 34rem; }
+    .ch-num { display: flex; align-items: center; gap: .7rem; font: 600 1rem/1 var(--display); color: var(--ink-2); margin-bottom: 1.1rem; }
+    .ch-num b { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--acc); color: var(--ink); font-weight: 800; font-size: 1.05rem; border: 1.5px solid var(--ink); }
+    .chapter h3 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-bottom: 1.1rem; }
+    .chapter p { color: var(--ink); }
+    .ch-out { display: grid; grid-template-columns: auto 1fr; gap: .2rem .8rem; margin-top: .6rem; padding-top: 1rem; border-top: 1.5px dashed var(--line); font: 500 .98rem/1.45 var(--display); color: var(--ink-2); }
+    .ch-out dt { font-weight: 700; color: var(--ink); }
+    .ch-out dd { margin: 0; }
+
+    .stage { position: sticky; top: 13vh; height: 74vh; align-self: start; margin-top: 3rem; background: var(--paper); border: 1.5px solid var(--line); border-radius: 40px; overflow: hidden; }
+    .stage figure { position: absolute; inset: 0 0 4.5rem; margin: 0; display: grid; place-items: center; padding: 2rem; opacity: 0; transform: scale(.94) translateY(12px); transition: opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+    .stage figure.is-active { opacity: 1; transform: none; }
+    .stage figure svg { width: 100%; max-width: 520px; height: auto; max-height: 100%; }
+    .stage-steps { position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.1rem; display: flex; gap: .4rem; list-style: none; margin: 0; padding: 0; }
+    .stage-steps li { flex: 1; }
+    .stage-steps a { display: block; text-decoration: none; font: 600 .8rem/1.2 var(--display); color: var(--ink-2); padding-top: .55rem; border-top: 4px solid var(--soft); transition: border-color .3s, color .3s; }
+    .stage-steps a.is-active { border-top-color: var(--ink); color: var(--ink); }
+    .stage-steps a.is-done { border-top-color: var(--acc); }
+    .ch-fig { margin: 0 0 1.8rem; background: var(--paper); border: 1.5px solid var(--line); border-radius: 28px; padding: 1.2rem; }
+    .ch-fig svg { width: 100%; height: auto; }
+    [data-anim]:not(.live) * { animation-play-state: paused !important; }
+
+    /* chapter illustration motion */
+    .glow { animation: glow 2.6s ease-in-out infinite; }
+    @keyframes glow { 0%,100% { opacity: .35; transform: scale(.92); } 50% { opacity: .85; transform: scale(1.08); } }
+    .draw { stroke-dasharray: var(--len); animation: draw var(--dur, 4s) ease-in-out var(--delay, 0s) infinite backwards; }
+    @keyframes draw { 0% { stroke-dashoffset: var(--len); } 45%, 100% { stroke-dashoffset: 0; } }
+    .grow { transform-box: fill-box; transform-origin: left center; animation: grow 5s cubic-bezier(.3,.7,.3,1) var(--delay, 0s) infinite backwards; }
+    @keyframes grow { 0% { transform: scaleX(0); } 22%, 100% { transform: scaleX(1); } }
+    .pen { animation: pen 1.4s ease-in-out infinite; }
+    @keyframes pen { 0%,100% { transform: translate(0,0) rotate(0); } 50% { transform: translate(-10px,4px) rotate(-4deg); } }
+    .stamp { transform-box: fill-box; transform-origin: center; animation: stamp 4.5s cubic-bezier(.3,1.4,.5,1) infinite; }
+    @keyframes stamp { 0%, 30% { transform: scale(1.9); opacity: 0; } 42% { transform: scale(.94); opacity: 1; } 48%, 100% { transform: scale(1); opacity: 1; } }
+    .drop { animation: drop 6s cubic-bezier(.3,1.3,.5,1) var(--delay, 0s) infinite backwards; }
+    @keyframes drop { 0%, 4% { transform: translateY(-130px); opacity: 0; } 12% { opacity: 1; } 24%, 100% { transform: none; opacity: 1; } }
+    .spread { animation: spread 5.5s cubic-bezier(.3,1.2,.5,1) var(--delay, 0s) infinite backwards; }
+    @keyframes spread { 0%, 12% { transform: translate(var(--dx, 0), var(--dy, 0)) scale(.6); opacity: 0; } 34%, 100% { transform: none; opacity: 1; } }
+    .blink { animation: blink 1.6s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ───────── A2UI ───────── */
+    .a2ui { background: var(--soft); border-radius: clamp(28px, 5vw, 64px); margin: 0 clamp(.5rem, 2vw, 1.5rem); }
+    .a2ui-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3rem; align-items: center; margin-bottom: 3rem; }
+    .a2ui-head svg { width: 100%; max-width: 420px; justify-self: center; }
+    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; margin: 2rem 0 0; max-width: 36rem; }
+    .facts div { border-left: 3px solid var(--ink); padding-left: .9rem; }
+    .facts dt { font: 700 1.05rem/1.25 var(--display); }
+    .facts dd { margin: .2rem 0 0; font-size: 1rem; line-height: 1.5; color: var(--ink-2); }
+    .links { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+
+    .pg { background: var(--paper); border: 1.5px solid var(--ink); border-radius: 32px; padding: clamp(1rem, 2.5vw, 1.8rem); box-shadow: 8px 8px 0 var(--ink); }
+    .pg-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1.5rem; margin-bottom: 1.2rem; }
+    .pg-top h3 { font-size: 1.5rem; }
+    .pg-top p { margin: 0; font: 500 .9rem/1.4 var(--display); color: var(--ink-2); }
+    .pg-steps { display: flex; gap: .5rem; list-style: none; margin: 0 0 1.2rem; padding: 0; counter-reset: s; flex-wrap: wrap; }
+    .pg-steps li { counter-increment: s; display: flex; align-items: center; gap: .45rem; font: 600 .85rem/1 var(--display); padding: .5rem .8rem .5rem .5rem; border-radius: 999px; border: 1.5px solid var(--line); color: var(--ink-2); transition: all .3s; }
+    .pg-steps li::before { content: counter(s); display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--soft); font-size: .78rem; }
+    .pg-steps li.is-done { border-color: var(--acc); color: var(--ink); }
+    .pg-steps li.is-done::before { background: var(--acc); }
+    .pg-steps li.is-current { border-color: var(--ink); color: var(--ink); background: var(--bg); }
+    .pg-steps li.is-current::before { background: var(--ink); color: var(--paper); }
+    .pg-body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 1.2rem; }
+    .pg-code { margin: 0; background: var(--ink); color: var(--paper); border-radius: 20px; padding: 1.2rem 1.3rem; font: 400 .84rem/1.6 ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace; overflow: auto; min-height: 22rem; max-height: 26rem; white-space: pre; tab-size: 2; }
+    .pg-code .tk { color: var(--acc); } .pg-code .ts { color: var(--acc2); } .pg-code .tp { opacity: .55; }
+    .pg-code.flash { animation: codeIn .45s ease both; }
+    @keyframes codeIn { from { opacity: .2; transform: translateY(6px); } }
+    .device { background: var(--bg); border: 1.5px solid var(--line); border-radius: 24px; padding: 1rem; display: flex; flex-direction: column; min-height: 22rem; }
+    .device-bar { display: flex; gap: .35rem; margin-bottom: .9rem; } .device-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+    .surface { flex: 1; display: flex; flex-direction: column; gap: .8rem; font-family: var(--display); }
+    .surface.is-empty { align-items: center; justify-content: center; text-align: center; color: var(--ink-2); font-size: .95rem; padding: 1rem; border: 1.5px dashed var(--line); border-radius: 16px; }
+    .ui-in { animation: uiIn .5s cubic-bezier(.2,.9,.3,1.2) both; }
+    @keyframes uiIn { from { opacity: 0; transform: translateY(8px) scale(.97); } }
+    .ui-title { font-weight: 700; font-size: 1.2rem; }
+    .ui-field { display: grid; gap: .3rem; font-size: .82rem; font-weight: 600; color: var(--ink-2); }
+    .ui-input { font: 500 .95rem/1.2 var(--display); color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: .6rem .7rem; min-height: 2.6rem; width: 100%; min-width: 0; transition: border-color .2s, background-color .4s; }
+    .ui-input:hover { border-color: color-mix(in srgb, var(--ink) 40%, transparent); }
+    .ui-input:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-color: var(--ink); }
+    .ui-input::placeholder { color: color-mix(in srgb, var(--ink) 50%, transparent); }
+    .ui-input.changed { animation: changed 1.2s ease; }
+    @keyframes changed { 0% { background: var(--acc2); } 100% { background: var(--paper); } }
+    .ui-group { display: grid; gap: .8rem; }
+    .ui-chips { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .ui-chip { cursor: pointer; border: 1.5px solid var(--line); border-radius: 999px; padding: .45rem .85rem; font: 600 .85rem/1 var(--display); background: var(--paper); color: var(--ink); transition: background-color .2s, color .2s, border-color .2s; }
+    .ui-chip:hover { border-color: var(--ink); }
+    .ui-chip.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .ui-btn { align-self: flex-start; justify-self: start; cursor: pointer; background: var(--acc); color: var(--ink); border: 1.5px solid var(--ink); border-radius: 999px; padding: .65rem 1.15rem; font: 700 .9rem/1 var(--display); transition: transform .15s; }
+    .ui-btn:hover { transform: translateY(-1px); } .ui-btn:active { transform: scale(.97); }
+    .ui-status { margin: 0; font: 500 .88rem/1.45 var(--display); color: var(--ink-2); border-left: 3px solid var(--acc); padding-left: .7rem; }
+    .ui-status:empty { display: none; }
+    .ui-status.is-error { border-left-color: var(--ink); color: var(--ink); font-weight: 600; }
+    .ui-chips { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .pg-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.2rem; }
+    .pg-caption { flex: 1 1 20rem; margin: 0; font-size: 1.05rem; color: var(--ink-2); min-height: 3.3em; }
+    .pg-actions { display: flex; gap: .6rem; }
+
+    /* ───────── ABOUT ───────── */
+    .about-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+    .about-text p { max-width: var(--measure); }
+    .creed { margin: 2.4rem 0; padding: 0; font: 600 clamp(1.45rem, 2.6vw, 2rem)/1.3 var(--display); letter-spacing: -.015em; max-width: 30ch; position: relative; }
+    .creed::before { content: ""; position: absolute; left: -1.4rem; top: .2em; bottom: .2em; width: 6px; border-radius: 3px; background: var(--acc); }
+    .creed footer { margin-top: .9rem; font: 500 1rem/1.4 var(--display); color: var(--ink-2); letter-spacing: 0; }
+    .habits-intro { margin: 2.4rem 0 0; color: var(--ink-2); }
+    .principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem 2.2rem; margin: 1.4rem 0 0; }
+    .principles dt { font: 700 1.1rem/1.25 var(--display); margin-bottom: .25rem; }
+    .principles dd { margin: 0; font-size: 1.02rem; line-height: 1.5; color: var(--ink-2); }
+    .about-side { position: sticky; top: 6rem; display: grid; gap: 2rem; }
+    .about-side svg { width: 100%; max-width: 300px; justify-self: center; }
+    .stack h3 { font-size: 1.05rem; margin: 0 0 .6rem; }
+    .stack ul { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0 0 1.3rem; padding: 0; }
+    .stack li { font: 500 .88rem/1 var(--display); padding: .45rem .7rem; border-radius: 8px; background: var(--paper); border: 1.5px solid var(--line); }
+    .avoid { font-size: 1rem; color: var(--ink-2); border-top: 1.5px dashed var(--line); padding-top: 1rem; }
+    .avoid s { text-decoration-thickness: 2px; text-decoration-color: var(--ink); }
+    .leaf { transform-box: fill-box; animation: sway 4s ease-in-out infinite; }
+    .leaf.l { transform-origin: right bottom; } .leaf.r { transform-origin: left bottom; }
+
+    /* ───────── CONTACT ───────── */
+    .contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 3rem; align-items: center; }
+    .mail { display: inline-block; font: 800 clamp(1.9rem, 5.6vw, 4.2rem)/1.05 var(--display); letter-spacing: -.035em; text-decoration: none; margin: 1.6rem 0 1.4rem; word-break: break-word; background-image: linear-gradient(var(--acc), var(--acc)); background-size: 100% .28em; background-position: 0 88%; background-repeat: no-repeat; transition: background-size .3s; }
+    .mail:hover { background-size: 100% .5em; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
+    .copied { font: 600 .95rem/1 var(--display); color: var(--ink-2); }
+    .contact svg { width: 100%; max-width: 380px; justify-self: center; }
+
+    /* ───────── RESPONSIVE ───────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 1.5rem; }
+      .portrait-stage { order: -1; max-width: 340px; }
+      .hero-title { max-width: none; }
+      .story { grid-template-columns: 1fr; }
+      .chapter { min-height: 0; padding: 2.2rem 0; max-width: none; }
+      .stage { position: static; height: auto; background: none; border: 0; margin: 0; }
+      .stage figure { position: static; opacity: 1; transform: none; padding: 0; }
+      .stage-steps { display: none; }
+      .stage.moved { display: none; }
+      .a2ui-head, .about-grid, .contact { grid-template-columns: 1fr; }
+      .a2ui-head svg { max-width: 320px; }
+      .pg-body { grid-template-columns: 1fr; }
+      .pg-code { min-height: 0; max-height: 18rem; font-size: .78rem; }
+      .device { min-height: 18rem; }
+      .about-side { position: static; }
+      .contact svg { max-width: 300px; }
+    }
+    @media (max-width: 560px) {
+      .facts, .principles { grid-template-columns: 1fr; }
+      .pg { box-shadow: 5px 5px 0 var(--ink); }
+      .pg-steps { display: grid; grid-template-columns: 1fr 1fr; }
+      .pg-steps li { font-size: .74rem; padding: .4rem .5rem .4rem .4rem; gap: .35rem; }
+      .pg-steps li::before { width: 1.3rem; height: 1.3rem; flex: none; }
+      .creed::before { left: -.9rem; }
+      .creed { padding-left: .2rem; }
+    }
+  </style>
 </head>
 <body>
+<a class="skip" href="#main"><span data-l="id">Langsung ke konten</span><span data-l="en">Skip to content</span></a>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand">
-    <svg class="nav-logo" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="34" height="34" rx="8" fill="#1e2540"/>
-      <circle cx="17" cy="17" r="7" fill="none" stroke="#5b6ef5" stroke-width="2.2"/>
-      <circle cx="17" cy="17" r="2.5" fill="#5b6ef5"/>
-      <line x1="17" y1="7" x2="17" y2="10" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="17" y1="24" x2="17" y2="27" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="7" y1="17" x2="10" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="24" y1="17" x2="27" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-    </svg>
-    <span class="nav-name">Radian <span>Data</span> Platform</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#capabilities">Capabilities</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-    <!-- theme toggle removed; site uses light theme only -->
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-blob"></div>
-  <div class="hero-blob2"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">Smart Data Solutions</div>
-      <h1>Empowering Businesses with <em>Intelligent Data</em></h1>
-      <p class="hero-sub">A consolidated portfolio of innovative data products — built to give your business sharper insights, stronger networks, and faster decisions.</p>
-      <div class="hero-actions">
-        <a href="#products" class="btn-primary">
-          Explore Our Products
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#contact" class="btn-ghost">Get in Touch</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">3<span>+</span></div>
-          <div class="stat-label">Products</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">10<span>M+</span></div>
-          <div class="stat-label">Data Points</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">100<span>%</span></div>
-          <div class="stat-label">Made in ID</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="data-card-stack">
-        <div class="data-ring"></div>
-        <div class="data-ring"></div>
-        <div class="data-ring"></div>
-        <div class="data-orb"></div>
-        <div class="data-dot"></div>
-        <div class="data-dot"></div>
-        <div class="data-dot"></div>
-        <div class="orb-center">
-          <span class="orb-icon">📡</span>
-          <span class="orb-label">Data</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="section-inner">
-    <p class="section-eyebrow">Our Portfolio</p>
-    <h2 class="section-title">Products Built for<br/>the Data Age</h2>
-    <p class="section-sub">Three focused tools, each solving a distinct problem — from network intelligence to market data to identity security.</p>
-
-    <div class="products-grid">
-
-      <!-- KenalApp -->
-      <div class="product-card">
-        <div class="product-header kenal">
-          <div class="product-header-particles"></div>
-          <div class="product-icon-wrap kenal">🤝</div>
-        </div>
-        <div class="product-body">
-          <span class="product-tag kenal">Networking</span>
-          <h3 class="product-name">KenalApp</h3>
-          <p class="product-desc">Remember everyone you meet. Build your professional network effortlessly with intelligent contact capture and sync.</p>
-          <ul class="product-features">
-            <li class="kenal">Scan business cards & media instantly</li>
-            <li class="kenal">Voice-to-contact data entry</li>
-            <li class="kenal">Auto-sync across all your devices</li>
-            <li class="kenal">Smart network intelligence</li>
-          </ul>
-          <a href="https://kenal.app" target="_blank" rel="noopener" class="product-link kenal">
-            Visit Kenal.app
-            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Tmpt -->
-      <div class="product-card">
-        <div class="product-header tmpt">
-          <div class="product-header-particles"></div>
-          <div class="product-icon-wrap tmpt">🔐</div>
-        </div>
-        <div class="product-body">
-          <span class="product-tag tmpt">Security</span>
-          <h3 class="product-name">Tmpt</h3>
-          <p class="product-desc">Secure your digital identity. Manage credentials and passwords in a private, end-to-end encrypted vault you can trust.</p>
-          <ul class="product-features">
-            <li class="tmpt">End-to-end encrypted storage</li>
-            <li class="tmpt">Cross-device credential management</li>
-            <li class="tmpt">Zero-knowledge architecture</li>
-            <li class="tmpt">Private digital identity layer</li>
-          </ul>
-          <a href="https://tmpt.my.id" target="_blank" rel="noopener" class="product-link tmpt">
-            Visit Tmpt.my.id
-            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Taliti -->
-      <div class="product-card">
-        <div class="product-header taliti">
-          <div class="product-header-particles"></div>
-          <div class="product-icon-wrap taliti">📊</div>
-        </div>
-        <div class="product-body">
-          <span class="product-tag taliti">Data Intelligence</span>
-          <h3 class="product-name">Taliti</h3>
-          <p class="product-desc">Access millions of business data points, market intelligence, and consumer trends — all in one integrated platform. Ready-to-use, no complex setup required.</p>
-          <ul class="product-features">
-            <li class="taliti">Verified B2B business database</li>
-            <li class="taliti">Real-time market & competitor intel</li>
-            <li class="taliti">News & sentiment aggregation</li>
-            <li class="taliti">On-demand custom datasets</li>
-          </ul>
-          <a href="https://taliti.id" target="_blank" rel="noopener" class="product-link taliti">
-            Visit Taliti.id
-            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CAPABILITIES -->
-<section id="capabilities">
-  <div class="section-inner">
-    <p class="section-eyebrow">What We Do</p>
-    <h2 class="section-title">Our Core Capabilities</h2>
-    <p class="section-sub">From raw data pipelines to production-grade AI — we bring deep technical expertise across the full data stack.</p>
-
-    <div class="caps-grid">
-      <div class="cap-card">
-        <div class="cap-icon">📈</div>
-        <h3 class="cap-title">Data Analysis &amp; Visualization</h3>
-        <p class="cap-desc">Transform raw datasets into clear, actionable visual narratives. Statistical modeling, dashboard design, and custom reporting pipelines.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">🏗️</div>
-        <h3 class="cap-title">Data Architecture &amp; Pipeline Design</h3>
-        <p class="cap-desc">Design scalable, resilient data infrastructure. From ingestion to transformation, we architect pipelines built for modern workloads.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">🤖</div>
-        <h3 class="cap-title">Machine Learning &amp; AI Development</h3>
-        <p class="cap-desc">End-to-end ML solutions — from feature engineering and model training to production deployment with monitoring and feedback loops.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">🗄️</div>
-        <h3 class="cap-title">Database Management</h3>
-        <p class="cap-desc">Expert-level PostgreSQL, Redis, and distributed database design. Query optimization, schema design, and high-availability setups.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">🕸️</div>
-        <h3 class="cap-title">Web Crawling &amp; Data Extraction</h3>
-        <p class="cap-desc">Large-scale data collection from e-commerce, news, social media, and business directories — structured and ready for analysis.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">🔢</div>
-        <h3 class="cap-title">Statistical Modeling</h3>
-        <p class="cap-desc">Rigorous quantitative methods using Python, R, and MATLAB. Predictive analytics, hypothesis testing, and causal inference.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-visual">
-        <div class="about-card-main">
-          <div class="about-card-label">Our Stack</div>
-          <div class="about-card-value">6<span>+</span></div>
-          <div style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem">Programming Languages</div>
-          <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">Python</span>
-            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">R</span>
-            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">SQL</span>
-            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">Julia</span>
-            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">MATLAB</span>
-            <span style="background:rgba(91,110,245,.2);color:#8b98fa;font-size:.75rem;font-weight:700;padding:.3rem .7rem;border-radius:6px">SAS</span>
-          </div>
-        </div>
-        <div class="about-card-mini">
-          <div class="mini-label">Est. Indonesia</div>
-          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#0d1224;margin-top:.1rem">🇮🇩 Proudly Local</div>
-          <div style="font-size:.75rem;color:#6b7280;margin-top:.3rem">Data technology for<br/>Indonesian businesses</div>
-        </div>
-      </div>
-      <div class="about-text">
-        <div class="about-tagline">About Radian</div>
-        <h2 class="about-headline">Innovation-led data technology, built in Indonesia</h2>
-        <p class="about-body">We are Radian Data Platform — a data technology company with a vision to be an innovation leader in smart, efficient data processing and analysis. We serve businesses that want to harness the power of data without the complexity.</p>
-        <p class="about-body">Our mission is to deliver accurate, fast, and reliable data services — developing tools that make it genuinely easier for companies to manage, understand, and act on their data.</p>
-        <div class="skills-list">
-          <div class="skill-item"><div class="skill-dot"></div>Data Analysis & Visualization</div>
-          <div class="skill-item"><div class="skill-dot"></div>Machine Learning & AI</div>
-          <div class="skill-item"><div class="skill-dot"></div>Data Architecture</div>
-          <div class="skill-item"><div class="skill-dot"></div>Statistical Modeling</div>
-          <div class="skill-item"><div class="skill-dot"></div>Database Management</div>
-          <div class="skill-item"><div class="skill-dot"></div>Programming & Scripting</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <p class="section-eyebrow">Work With Us</p>
-    <h2 class="section-title">Let's Build Something Together</h2>
-    <p class="section-sub">Whether you need a custom dataset, a data platform, or a full AI solution — we'd love to hear from you.</p>
-
-    <div class="contact-grid">
-      <div>
-        <div class="contact-form-card">
-          <div id="form-fields">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">Your Name</label>
-                <input type="text" id="fname" name="name" placeholder="Budi Santoso" required/>
-              </div>
-              <div class="form-group">
-                <label for="femail">Email Address</label>
-                <input type="email" id="femail" name="email" placeholder="budi@perusahaan.com" required/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="fsubject">Subject</label>
-              <select id="fsubject" name="subject">
-                <option value="">Select a topic...</option>
-                <option>Data Analysis Project</option>
-                <option>KenalApp Inquiry</option>
-                <option>Tmpt Inquiry</option>
-                <option>Taliti Data Access</option>
-                <option>Custom Data Solution</option>
-                <option>Partnership</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="fmessage">Message</label>
-              <textarea id="fmessage" name="message" placeholder="Tell us about your project or question..."></textarea>
-            </div>
-            <button type="button" class="form-submit" onclick="submitForm()">
-              Send Message
-              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px"><path d="M2 8h12M10 4l4 4-4 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <p class="form-note">✔ Powered by Formspree &nbsp;·&nbsp; We respond within 1 business day</p>
-          </div>
-          <div class="form-success" id="form-success">
-            <div class="form-success-icon">✅</div>
-            <h3>Message sent!</h3>
-            <p>Thanks for reaching out. We'll get back to you within one business day.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-info">
-        <h3 class="contact-info-title">Contact Information</h3>
-        <p class="contact-info-body">Reach us directly or use the form. We're always open to discussing new projects, ideas, and collaborations.</p>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-item-icon">📧</div>
-            <div class="contact-item-text">
-              <div class="contact-item-label">Email</div>
-              <div class="contact-item-value">heyradian@gmail.com</div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🌐</div>
-            <div class="contact-item-text">
-              <div class="contact-item-label">Website</div>
-              <div class="contact-item-value">radian.web.id</div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div class="contact-item-text">
-              <div class="contact-item-label">Location</div>
-              <div class="contact-item-value">Indonesia 🇮🇩</div>
-            </div>
-          </div>
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/radianapp" target="_blank" rel="noopener" class="social-link" title="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          </a>
-          <a href="#" class="social-link" title="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="#" class="social-link" title="Twitter / X">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="34" height="34" rx="8" fill="#1e2540"/>
-        <circle cx="17" cy="17" r="7" fill="none" stroke="#5b6ef5" stroke-width="2.2"/>
-        <circle cx="17" cy="17" r="2.5" fill="#5b6ef5"/>
-        <line x1="17" y1="7" x2="17" y2="10" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="17" y1="24" x2="17" y2="27" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="7" y1="17" x2="10" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="24" y1="17" x2="27" y2="17" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-      <div>
-        <div class="footer-name">Radian <span>Data</span> Platform</div>
-        <div class="footer-copy">© 2026 Radian Data Platform. All rights reserved.</div>
-      </div>
-    </div>
-    <ul class="footer-links">
-      <li><a href="#products">Products</a></li>
-      <li><a href="#capabilities">Capabilities</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="https://radian.web.id/terms.html" target="_blank">Terms</a></li>
-      <li><a href="https://radian.web.id/privacy.html" target="_blank">Privacy</a></li>
+<header class="nav">
+  <a class="brand" href="#top"><img src="assets/portrait-sm.webp" alt="" width="36" height="36">Rahadian Hadi</a>
+  <nav aria-label="Utama">
+    <ul class="nav-links">
+      <li><a href="#cerita"><span data-l="id">Cerita</span><span data-l="en">Story</span></a></li>
+      <li><a href="#a2ui">A2UI</a></li>
+      <li><a href="#tentang"><span data-l="id">Tentang</span><span data-l="en">About</span></a></li>
+      <li><a href="#kontak"><span data-l="id">Kontak</span><span data-l="en">Contact</span></a></li>
     </ul>
-    <div class="footer-social">
-      <a href="https://github.com/radianapp" target="_blank" title="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-      </a>
-      <a href="#" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
+  </nav>
+  <div class="nav-tools">
+    <button class="chip-btn" type="button" data-palette-next><span class="swatch" aria-hidden="true"></span><span class="pal-name" data-pal-name>Pandan</span></button>
+    <button class="chip-btn" type="button" data-lang-toggle><span class="cur">ID</span><span aria-hidden="true">/</span><span data-l="id">EN</span><span data-l="en">ID</span></button>
+  </div>
+</header>
+
+<main id="main">
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="top" data-anim>
+  <div>
+    <p class="hello">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><g class="hand"><path class="f-acc2 s" style="stroke-width:1.6" d="M7 13V7.5a1.5 1.5 0 0 1 3 0V12V5.5a1.5 1.5 0 0 1 3 0V12V6.5a1.5 1.5 0 0 1 3 0V13v-3.5a1.5 1.5 0 0 1 3 0V15a7 7 0 0 1-7 7h-.5A6.5 6.5 0 0 1 6 18.6L3.6 14.8a1.4 1.4 0 0 1 2.3-1.6z"/></g></svg>
+      <span><span data-greet>Halo</span><span data-l="id">, saya Rahadian Hadi</span><span data-l="en">, I'm Rahadian Hadi</span></span>
+    </p>
+    <h1 class="hero-title">
+      <span data-l="id">Saya merancang sistem yang bisa <span class="echo" data-text="dipakai lagi.">dipakai lagi.</span></span>
+      <span data-l="en">I design systems that get <span class="echo" data-text="used again.">used again.</span></span>
+    </h1>
+    <p class="hero-lead" data-l="id">Software engineer di Indonesia. Pekerjaan saya kebanyakan ada di balik layar: arsitektur, standar pengembangan, starter kit, dan dokumentasi, supaya tim berikutnya tidak perlu mulai dari nol.</p>
+    <p class="hero-lead" data-l="en">Software engineer based in Indonesia. Most of my work happens behind the scenes: architecture, development standards, starter kits, and documentation, so the next team never has to start from zero.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#cerita"><span data-l="id">Baca ceritanya</span><span data-l="en">Read the story</span></a>
+      <a class="btn btn--ghost" href="#kontak"><span data-l="id">Hubungi saya</span><span data-l="en">Get in touch</span></a>
+    </div>
+    <p class="hero-note"><span class="swatch" data-today-swatch aria-hidden="true"></span>
+      <span data-l="id">Warna hari <span data-today-day>Senin</span>: <b data-today-name>Pandan</b>. Besok halaman ini ganti warna.</span>
+      <span data-l="en">Colour for <span data-today-day>Monday</span>: <b data-today-name>Pandan</b>. Tomorrow this page changes colour.</span>
+    </p>
+  </div>
+
+  <div class="portrait-stage">
+    <svg viewBox="0 0 520 560" role="img" aria-label="Ilustrasi jendela aplikasi dengan editor kode, komponen formulir, dan terminal">
+      <path class="f-acc s" d="M70 510V262a190 190 0 0 1 380 0v248a40 40 0 0 1-40 40H110a40 40 0 0 1-40-40z"/>
+      <g class="orbit tb"><circle class="s nf" cx="260" cy="262" r="238" stroke-dasharray="2 13" style="stroke-width:2"/><circle class="f-acc2 s" cx="22" cy="262" r="9"/><circle class="f-paper s" cx="498" cy="262" r="6"/></g>
+      <g class="bob1"><g transform="translate(440 112)"><g class="gear tb"><circle class="nf" r="30" style="stroke:var(--ink);stroke-width:11" stroke-dasharray="7 6.7"/><circle class="f-acc2 s" r="24"/><circle class="f-paper s" r="8"/></g></g></g>
+
+      <!-- app window -->
+      <rect class="f-paper s" x="112" y="148" width="296" height="244" rx="16"/>
+      <path class="f-soft s" d="M112 166a18 18 0 0 1 18-18h260a18 18 0 0 1 18 18v28H112z"/>
+      <circle class="f-acc s" cx="134" cy="171" r="5.5" style="stroke-width:1.5"/><circle class="f-acc2 s" cx="152" cy="171" r="5.5" style="stroke-width:1.5"/><circle class="f-paper s" cx="170" cy="171" r="5.5" style="stroke-width:1.5"/>
+      <rect class="f-paper s" x="214" y="162" width="150" height="18" rx="9" style="stroke-width:1.5"/>
+      <path class="f-soft s" d="M112 194h72v182a16 16 0 0 1-16 16h-40a16 16 0 0 1-16-16z" style="stroke-width:2"/>
+      <rect class="f-acc s" x="124" y="208" width="48" height="14" rx="7" style="stroke-width:1.5"/>
+      <rect class="f-paper s" x="124" y="232" width="48" height="14" rx="7" style="stroke-width:1.5"/>
+      <rect class="f-paper s" x="124" y="256" width="48" height="14" rx="7" style="stroke-width:1.5"/>
+      <rect class="f-paper s" x="124" y="280" width="48" height="14" rx="7" style="stroke-width:1.5"/>
+      <!-- code being written -->
+      <rect class="f-acc grow" style="--delay:.3s" x="202" y="210" width="62" height="9" rx="4.5"/>
+      <rect class="f-ink grow" style="--delay:.5s" x="270" y="210" width="44" height="9" rx="4.5"/>
+      <rect class="f-acc2 grow" style="--delay:.9s" x="218" y="230" width="104" height="9" rx="4.5"/>
+      <rect class="f-ink grow" style="--delay:1.2s" x="218" y="250" width="52" height="9" rx="4.5"/>
+      <rect class="f-acc grow" style="--delay:1.4s" x="276" y="250" width="70" height="9" rx="4.5"/>
+      <rect class="f-acc2 grow" style="--delay:1.8s" x="218" y="270" width="120" height="9" rx="4.5"/>
+      <rect class="f-ink grow" style="--delay:2.1s" x="202" y="290" width="34" height="9" rx="4.5"/>
+      <rect class="f-ink blink" x="242" y="286" width="3" height="17" rx="1.5"/>
+
+      <!-- a form component popping out of the window -->
+      <g class="bob1"><g transform="translate(286 322)">
+        <rect class="f-paper s" width="158" height="108" rx="14"/>
+        <rect class="f-soft" x="14" y="14" width="64" height="9" rx="4.5"/>
+        <rect class="f-bg s" x="14" y="30" width="130" height="24" rx="7" style="stroke-width:1.5"/>
+        <rect class="f-ink grow" style="--delay:.6s" x="22" y="39" width="58" height="6" rx="3"/>
+        <rect class="f-acc s" x="14" y="68" width="38" height="20" rx="10" style="stroke-width:1.5"/>
+        <circle class="f-paper s knob" cx="24" cy="78" r="6.5" style="stroke-width:1.5"/>
+        <g class="press tb"><rect class="f-ink" x="76" y="66" width="68" height="26" rx="13"/><rect class="f-paper" x="94" y="76" width="32" height="6" rx="3"/></g>
+        <g transform="translate(116 88)"><path class="ptr f-ink" style="stroke:var(--paper);stroke-width:2;stroke-linejoin:round" d="M0 0v20l5.5-5 4.5 10 4-2-4.5-10h7.5z"/></g>
+      </g></g>
+
+      <!-- terminal -->
+      <g class="bob2" style="animation-delay:-3s"><g transform="translate(28 418)">
+        <rect class="f-ink s" width="178" height="52" rx="14"/>
+        <text x="16" y="32" class="f-paper" style="font:600 14px ui-monospace,'Cascadia Code',Consolas,monospace">$ compose up -d</text>
+        <rect class="f-acc blink" x="148" y="20" width="8" height="16" rx="2"/>
+      </g></g>
+
+      <g class="bob2" style="animation-delay:-1.5s"><g transform="translate(14 248) rotate(-9)"><rect class="f-acc2 s" width="70" height="64" rx="6"/><path class="s" d="M12 20h46M12 33h36M12 46h22"/></g></g>
+      <g class="bob1" style="animation-delay:-1s"><text x="24" y="132" class="f-ink" style="font:800 56px var(--display)">{ }</text></g>
+      <path class="f-ink tw1 tb" d="M150 58l5 15 15 5-15 5-5 15-5-15-15-5 15-5z"/>
+      <path class="f-ink tw2 tb" d="M480 300l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+      <path class="f-ink tw3 tb" d="M380 30l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════ STORY ═══════════ -->
+<section class="section" id="cerita" aria-labelledby="cerita-title">
+  <div class="wrap">
+    <h2 class="section-title" id="cerita-title"><span data-l="id">Jalan yang sama, setiap kali</span><span data-l="en">The same road, every time</span></h2>
+    <p class="section-lead" data-l="id">Setiap sistem yang saya bangun melewati lima pemberhentian. Bukan karena saya kaku, tapi karena urutan inilah yang membuat hasilnya bisa dirawat orang lain, lama setelah saya pindah ke proyek berikutnya.</p>
+    <p class="section-lead" data-l="en">Every system I build passes through five stops. Not because I'm rigid, but because this order is what lets other people maintain the result long after I've moved on to the next project.</p>
+
+    <div class="story">
+      <div class="chapters">
+        <article class="chapter" id="bab-1" data-step="0">
+          <p class="ch-num"><b>1</b><span data-l="id">Bab 1 dari 5</span><span data-l="en">Chapter 1 of 5</span></p>
+          <h3><span data-l="id">Ide yang masih berantakan</span><span data-l="en">An idea that's still messy</span></h3>
+          <p data-l="id">Semua dimulai dari coretan: masalah siapa yang mau diselesaikan, apa yang sudah pernah dicoba, dan apa yang belum jelas. Di tahap ini saya sengaja membiarkan ide tetap berantakan, asalkan tertulis. Ide yang hanya ada di kepala tidak bisa didiskusikan.</p>
+          <p data-l="en">It starts with scribbles: whose problem we're solving, what's been tried before, and what's still unclear. At this stage I let ideas stay messy, as long as they're written down. An idea that only lives in someone's head can't be discussed.</p>
+          <dl class="ch-out"><dt><span data-l="id">Hasil</span><span data-l="en">Output</span></dt><dd><span data-l="id">Catatan brainstorming dan daftar pertanyaan terbuka</span><span data-l="en">Brainstorm notes and a list of open questions</span></dd></dl>
+        </article>
+
+        <article class="chapter" id="bab-2" data-step="1">
+          <p class="ch-num"><b>2</b><span data-l="id">Bab 2 dari 5</span><span data-l="en">Chapter 2 of 5</span></p>
+          <h3><span data-l="id">Kontrak sebelum kode</span><span data-l="en">A contract before code</span></h3>
+          <p data-l="id">Sebelum satu baris kode ditulis, saya menulis PRD dan user story: apa yang dibangun, untuk siapa, dan kapan sebuah fitur dianggap selesai. Dokumen ini jadi kontrak antara bisnis dan tim teknis, jadi tidak ada yang kaget saat demo.</p>
+          <p data-l="en">Before a single line of code, I write the PRD and user stories: what we're building, for whom, and when a feature counts as done. That document becomes the contract between business and engineering, so nobody is surprised at the demo.</p>
+          <dl class="ch-out"><dt><span data-l="id">Hasil</span><span data-l="en">Output</span></dt><dd><span data-l="id">PRD dan user story lengkap dengan kriteria penerimaan</span><span data-l="en">A PRD and user stories with acceptance criteria</span></dd></dl>
+        </article>
+
+        <article class="chapter" id="bab-3" data-step="2">
+          <p class="ch-num"><b>3</b><span data-l="id">Bab 3 dari 5</span><span data-l="en">Chapter 3 of 5</span></p>
+          <h3><span data-l="id">Keputusan yang punya alasan</span><span data-l="en">Decisions with a paper trail</span></h3>
+          <p data-l="id">DRF atau yang lain? Satu database atau dua? Setiap pilihan arsitektur saya catat sebagai ADR, lengkap dengan alternatif yang ditolak dan alasannya. Enam bulan kemudian, siapa pun bisa membaca kenapa sistemnya dibangun seperti ini.</p>
+          <p data-l="en">DRF or something else? One database or two? I record every architecture choice as an ADR, including the alternatives we rejected and why. Six months later, anyone can read why the system is built the way it is.</p>
+          <dl class="ch-out"><dt><span data-l="id">Hasil</span><span data-l="en">Output</span></dt><dd><span data-l="id">Architecture Decision Record berstatus Accepted</span><span data-l="en">Architecture Decision Records marked Accepted</span></dd></dl>
+        </article>
+
+        <article class="chapter" id="bab-4" data-step="3">
+          <p class="ch-num"><b>4</b><span data-l="id">Bab 4 dari 5</span><span data-l="en">Chapter 4 of 5</span></p>
+          <h3><span data-l="id">Fondasi yang tidak dibangun ulang</span><span data-l="en">Foundations you don't rebuild</span></h3>
+          <p data-l="id">Wireframe menentukan alurnya, starter kit menyediakan fondasinya: struktur folder, autentikasi, konvensi penamaan, komponen UI, dan dokumentasi API. Proyek baru langsung mulai dari fitur, bukan dari halaman login yang ke sekian kalinya.</p>
+          <p data-l="en">Wireframes settle the flow; a starter kit provides the foundation: folder structure, authentication, naming conventions, UI components, and API docs. A new project starts with its features, not with yet another login page.</p>
+          <dl class="ch-out"><dt><span data-l="id">Hasil</span><span data-l="en">Output</span></dt><dd><span data-l="id">Wireframe dan proyek yang berdiri di atas starter kit</span><span data-l="en">Wireframes and a project built on the starter kit</span></dd></dl>
+        </article>
+
+        <article class="chapter" id="bab-5" data-step="4">
+          <p class="ch-num"><b>5</b><span data-l="id">Bab 5 dari 5</span><span data-l="en">Chapter 5 of 5</span></p>
+          <h3><span data-l="id">Diuji, lalu dijadikan standar</span><span data-l="en">Tested, then made the standard</span></h3>
+          <p data-l="id">QA memastikan sistemnya benar, UAT memastikan sistemnya berguna. Pola yang terbukti berhasil saya angkat jadi template dan standar tim, supaya proyek berikutnya selesai lebih cepat dari proyek ini. Di situlah cerita ini kembali ke bab pertama.</p>
+          <p data-l="en">QA makes sure the system is right; UAT makes sure it's useful. Patterns that prove themselves become templates and team standards, so the next project ships faster than this one did. That's where the story loops back to chapter one.</p>
+          <dl class="ch-out"><dt><span data-l="id">Hasil</span><span data-l="en">Output</span></dt><dd><span data-l="id">Laporan QA dan UAT, plus satu standar baru di repositori</span><span data-l="en">QA and UAT reports, plus one new standard in the repo</span></dd></dl>
+        </article>
+      </div>
+
+      <div class="stage" aria-hidden="true">
+        <!-- 1 · idea -->
+        <figure data-for="bab-1" data-anim>
+          <svg viewBox="0 0 400 320">
+            <circle class="f-soft" cx="200" cy="165" r="122"/>
+            <g transform="translate(200 140)">
+              <circle class="f-acc2 glow tb" r="66"/>
+              <path class="s tw1 tb" d="M0-56v-16M44-38l11-11M-44-38l-11-11M56 2h15M-56 2h-15"/>
+              <circle class="f-paper s" r="40"/>
+              <path class="s nf" d="M-12 8q6-16 12 0t12 0"/>
+              <path class="s" d="M-10 14v22M10 14v22"/>
+              <rect class="f-acc s" x="-19" y="34" width="38" height="26" rx="6"/>
+              <path class="s" d="M-19 46h38"/>
+            </g>
+            <g class="bob1"><g transform="translate(46 58) rotate(-10)"><rect class="f-acc s" width="76" height="64" rx="6"/><path class="s" d="M12 20h50M12 34h36M12 48h22"/></g></g>
+            <g class="bob2"><g transform="translate(284 48) rotate(8)"><rect class="f-acc2 s" width="72" height="62" rx="6"/><path class="s" d="M12 20h46M12 34h30"/></g></g>
+            <g class="bob1" style="animation-delay:-2.5s"><g transform="translate(292 196) rotate(-6)"><rect class="f-paper s" width="66" height="64" rx="6"/><text x="33" y="47" text-anchor="middle" class="f-ink" style="font:800 40px var(--display)">?</text></g></g>
+            <path class="s nf draw" style="--len:360;--dur:5s" d="M38 262c20-30 40 20 60-6s30-30 48 4 34 24 52-8 30-12 40 10 26 18 44-4"/>
+          </svg>
+        </figure>
+        <!-- 2 · contract -->
+        <figure data-for="bab-2" data-anim>
+          <svg viewBox="0 0 400 320">
+            <circle class="f-soft" cx="200" cy="165" r="128"/>
+            <g transform="rotate(-3 200 160)">
+              <path class="f-paper s" d="M112 34h146l32 32v222a8 8 0 0 1-8 8H112a8 8 0 0 1-8-8V42a8 8 0 0 1 8-8z"/>
+              <path class="f-soft s" d="M258 34v26a6 6 0 0 0 6 6h26"/>
+              <rect class="f-ink" x="128" y="62" width="96" height="13" rx="6.5"/>
+              <rect class="f-acc grow" style="--delay:.2s" x="128" y="92" width="140" height="8" rx="4"/>
+              <rect class="f-acc grow" style="--delay:.5s" x="128" y="110" width="118" height="8" rx="4"/>
+              <rect class="f-acc grow" style="--delay:.8s" x="128" y="128" width="130" height="8" rx="4"/>
+              <rect class="f-paper s" x="128" y="158" width="20" height="20" rx="5"/>
+              <path class="s nf draw" style="--len:26;--dur:5s;--delay:1.2s" d="M132 168l5 5 8-10"/>
+              <rect class="f-soft grow" style="--delay:1.2s" x="160" y="164" width="98" height="8" rx="4"/>
+              <rect class="f-paper s" x="128" y="194" width="20" height="20" rx="5"/>
+              <path class="s nf draw" style="--len:26;--dur:5s;--delay:1.7s" d="M132 204l5 5 8-10"/>
+              <rect class="f-soft grow" style="--delay:1.7s" x="160" y="200" width="80" height="8" rx="4"/>
+              <rect class="f-paper s" x="128" y="230" width="20" height="20" rx="5"/>
+              <path class="s nf draw" style="--len:26;--dur:5s;--delay:2.2s" d="M132 240l5 5 8-10"/>
+              <rect class="f-soft grow" style="--delay:2.2s" x="160" y="236" width="104" height="8" rx="4"/>
+            </g>
+            <g class="pen"><g transform="translate(306 214) rotate(40)"><rect class="f-acc2 s" x="-9" y="-62" width="18" height="72" rx="4"/><path class="f-ink s" d="M-9 10l9 18 9-18z"/><path class="s" d="M-9-44h18"/></g></g>
+          </svg>
+        </figure>
+        <!-- 3 · decision -->
+        <figure data-for="bab-3" data-anim>
+          <svg viewBox="0 0 400 320">
+            <circle class="f-soft" cx="200" cy="165" r="128"/>
+            <g transform="translate(46 44) rotate(-6)"><rect class="f-paper s" width="88" height="62" rx="7"/><text x="14" y="28" class="f-ink" style="font:800 18px var(--display)">ADR</text><path class="s" d="M14 40h58M14 50h40"/></g>
+            <path class="s nf" style="opacity:.45" stroke-dasharray="4 10" d="M84 236C160 236 170 100 282 98"/>
+            <circle class="f-paper s" cx="300" cy="98" r="17"/><path class="s" d="M293 91l14 14M307 91l-14 14"/>
+            <text x="328" y="105" class="f-ink" style="font:700 20px var(--display);opacity:.5">A</text>
+            <path class="s nf draw" style="--len:230;--dur:4.5s;stroke-width:4" d="M84 236C150 236 200 250 282 250"/>
+            <circle class="f-acc s" cx="300" cy="250" r="17"/><path class="s nf" d="M292 250l6 6 10-12"/>
+            <text x="328" y="257" class="f-ink" style="font:700 20px var(--display)">B</text>
+            <circle class="f-ink" cx="72" cy="236" r="12"/>
+            <g transform="translate(150 140) rotate(-12)"><g class="stamp"><rect class="nf" width="128" height="48" rx="9" style="stroke:var(--ink);stroke-width:3"/><rect class="nf s" x="5" y="5" width="118" height="38" rx="6" style="stroke-width:1.5"/><text x="64" y="31" text-anchor="middle" class="f-ink" style="font:800 20px var(--display)">Accepted</text></g></g>
+          </svg>
+        </figure>
+        <!-- 4 · foundation -->
+        <figure data-for="bab-4" data-anim>
+          <svg viewBox="0 0 400 320">
+            <circle class="f-soft" cx="200" cy="160" r="128"/>
+            <rect class="f-ink" x="58" y="272" width="284" height="10" rx="5"/>
+            <rect class="f-acc s" x="78" y="226" width="244" height="44" rx="9"/><text x="200" y="254" text-anchor="middle" class="f-ink" style="font:700 16px var(--display)">starter kit</text>
+            <g class="drop" style="--delay:.3s"><rect class="f-acc2 s" x="78" y="180" width="118" height="44" rx="9"/><text x="137" y="208" text-anchor="middle" class="f-ink" style="font:700 15px var(--display)">auth</text></g>
+            <g class="drop" style="--delay:.6s"><rect class="f-paper s" x="204" y="180" width="118" height="44" rx="9"/><text x="263" y="208" text-anchor="middle" class="f-ink" style="font:700 15px var(--display)">api</text></g>
+            <g class="drop" style="--delay:.9s"><rect class="f-soft s" x="112" y="134" width="176" height="44" rx="9"/><text x="200" y="162" text-anchor="middle" class="f-ink" style="font:700 15px var(--display)">ui + docs</text></g>
+            <g class="drop" style="--delay:1.3s"><rect class="nf s" x="146" y="64" width="108" height="66" rx="9" stroke-dasharray="6 6"/><path class="s" style="opacity:.5" d="M162 84h50M162 98h76M162 112h36"/></g>
+            <path class="f-ink tw2 tb" d="M290 60l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+          </svg>
+        </figure>
+        <!-- 5 · standard -->
+        <figure data-for="bab-5" data-anim>
+          <svg viewBox="0 0 400 320">
+            <circle class="f-soft" cx="200" cy="165" r="128"/>
+            <g transform="translate(36 112)"><g class="spread" style="--dx:130px;--dy:0px;--delay:.4s"><rect class="f-paper s" width="70" height="88" rx="8"/><rect class="f-acc" x="9" y="10" width="52" height="10" rx="5"/><path class="s" d="M10 36h48M10 48h36M10 60h42"/></g></g>
+            <g transform="translate(294 112)"><g class="spread" style="--dx:-130px;--dy:0px;--delay:.6s"><rect class="f-paper s" width="70" height="88" rx="8"/><rect class="f-acc" x="9" y="10" width="52" height="10" rx="5"/><path class="s" d="M10 36h48M10 48h36M10 60h42"/></g></g>
+            <g transform="translate(96 214)"><g class="spread" style="--dx:70px;--dy:-90px;--delay:.8s"><rect class="f-paper s" width="70" height="88" rx="8"/><rect class="f-acc" x="9" y="10" width="52" height="10" rx="5"/><path class="s" d="M10 36h48M10 48h36M10 60h42"/></g></g>
+            <g transform="translate(234 214)"><g class="spread" style="--dx:-70px;--dy:-90px;--delay:1s"><rect class="f-paper s" width="70" height="88" rx="8"/><rect class="f-acc" x="9" y="10" width="52" height="10" rx="5"/><path class="s" d="M10 36h48M10 48h36M10 60h42"/></g></g>
+            <g transform="translate(150 50)"><rect class="f-paper s" width="100" height="132" rx="10"/><rect class="f-acc s" x="12" y="14" width="76" height="16" rx="8" style="stroke-width:1.5"/><path class="s" d="M14 50h70M14 66h52M14 82h62M14 98h40"/><circle class="f-acc2 s" cx="100" cy="0" r="18"/><path class="s nf" d="M92 0l6 6 10-12"/></g>
+          </svg>
+        </figure>
+        <ol class="stage-steps">
+          <li><a href="#bab-1"><span data-l="id">Ide</span><span data-l="en">Idea</span></a></li>
+          <li><a href="#bab-2">PRD</a></li>
+          <li><a href="#bab-3">ADR</a></li>
+          <li><a href="#bab-4"><span data-l="id">Fondasi</span><span data-l="en">Foundation</span></a></li>
+          <li><a href="#bab-5"><span data-l="id">Standar</span><span data-l="en">Standard</span></a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ A2UI ═══════════ -->
+<section class="section a2ui" id="a2ui" aria-labelledby="a2ui-title">
+  <div class="wrap">
+    <div class="a2ui-head">
+      <div>
+        <h2 class="section-title" id="a2ui-title"><span data-l="id">Studi kasus: A2UI di Dasa UI v2</span><span data-l="en">Case study: A2UI on Dasa UI v2</span></h2>
+        <p class="section-lead" data-l="id">Bagaimana kalau AI agent bisa menampilkan formulir, tabel, dan dialog konfirmasi, bukan cuma teks panjang? A2UI adalah protokol terbuka untuk itu: agent mengirim pesan JSON, aplikasi yang merender antarmukanya. Saya memetakan katalog A2UI ke design system Dasa UI v2, supaya hasilnya aman dan selalu sesuai brand.</p>
+        <p class="section-lead" data-l="en">What if an AI agent could show forms, tables, and confirmation dialogs instead of long paragraphs? A2UI is an open protocol for exactly that: the agent sends JSON messages and the app renders the interface. I mapped the A2UI catalog onto the Dasa UI v2 design system, so the output is safe and always on brand.</p>
+        <dl class="facts">
+          <div><dt><span data-l="id">Aman sejak desain</span><span data-l="en">Safe by design</span></dt><dd><span data-l="id">Agent hanya boleh memakai komponen terdaftar. Tidak ada HTML atau JavaScript bebas.</span><span data-l="en">Agents can only use registered components. No arbitrary HTML or JavaScript.</span></dd></div>
+          <div><dt><span data-l="id">36 komponen</span><span data-l="en">36 components</span></dt><dd><span data-l="id">Dari TextField dan ChoicePicker sampai Table, Tabs, dan Modal.</span><span data-l="en">From TextField and ChoicePicker to Table, Tabs, and Modal.</span></dd></div>
+          <div><dt><span data-l="id">Satu skema, banyak klien</span><span data-l="en">One schema, many clients</span></dt><dd><span data-l="id">Django + HTMX, React, Vue, Lit, sampai Flutter.</span><span data-l="en">Django + HTMX, React, Vue, Lit, and Flutter.</span></dd></div>
+          <div><dt><span data-l="id">Tanpa build step</span><span data-l="en">No build step</span></dt><dd><span data-l="id">Salin file CSS dan JS ke proyek statis atau Django, langsung jalan.</span><span data-l="en">Copy the CSS and JS into a static or Django project and it runs.</span></dd></div>
+        </dl>
+        <div class="links">
+          <a class="btn" href="https://ui.dasa.my.id/v2/a2ui-overview.html" target="_blank" rel="noopener"><span data-l="id">Baca dokumentasi A2UI</span><span data-l="en">Read the A2UI docs</span></a>
+          <a class="btn btn--ghost" href="https://ui.dasa.my.id/v2/a2ui/gallery.html" target="_blank" rel="noopener"><span data-l="id">Lihat galeri komponen</span><span data-l="en">Browse the component gallery</span></a>
+        </div>
+      </div>
+      <svg viewBox="0 0 400 240" aria-hidden="true" data-anim>
+        <path id="wire" class="s nf" stroke-dasharray="2 9" d="M126 122C170 66 220 176 262 122"/>
+        <g transform="translate(78 124)"><g class="bob1"><circle class="f-acc2 s" r="44"/><circle class="f-ink" cx="-14" cy="-6" r="5"/><circle class="f-ink" cx="14" cy="-6" r="5"/><path class="s nf" d="M-12 12q12 10 24 0"/><path class="s" d="M0-44v-14"/><circle class="f-acc s blink" cy="-64" r="7"/></g></g>
+        <g><rect class="f-acc s" x="-19" y="-12" width="38" height="24" rx="7"/><text y="5" text-anchor="middle" class="f-ink" style="font:800 13px var(--display)">{ }</text><animateMotion dur="3s" repeatCount="indefinite" begin="0s"><mpath href="#wire"/></animateMotion></g>
+        <g><rect class="f-paper s" x="-19" y="-12" width="38" height="24" rx="7"/><text y="5" text-anchor="middle" class="f-ink" style="font:800 13px var(--display)">{ }</text><animateMotion dur="3s" repeatCount="indefinite" begin="-1s"><mpath href="#wire"/></animateMotion></g>
+        <g><rect class="f-acc2 s" x="-19" y="-12" width="38" height="24" rx="7"/><text y="5" text-anchor="middle" class="f-ink" style="font:800 13px var(--display)">{ }</text><animateMotion dur="3s" repeatCount="indefinite" begin="-2s"><mpath href="#wire"/></animateMotion></g>
+        <rect class="f-paper s" x="262" y="46" width="114" height="152" rx="14"/>
+        <rect class="f-ink" x="276" y="64" width="62" height="10" rx="5"/>
+        <rect class="f-bg s grow" style="--delay:.2s;stroke-width:1.5" x="276" y="86" width="86" height="20" rx="6"/>
+        <rect class="f-acc grow" style="--delay:.7s" x="276" y="116" width="32" height="15" rx="7.5"/>
+        <rect class="f-soft grow" style="--delay:.9s" x="312" y="116" width="32" height="15" rx="7.5"/>
+        <rect class="f-ink grow" style="--delay:1.3s" x="276" y="150" width="58" height="24" rx="12"/>
+      </svg>
+    </div>
+
+    <div class="pg" id="playground">
+      <div class="pg-top">
+        <h3><span data-l="id">Coba sendiri: agent memesan ruang rapat</span><span data-l="en">Try it: an agent books a meeting room</span></h3>
+        <p><span data-l="id">Contoh pesan disederhanakan dari spesifikasi A2UI v1.0</span><span data-l="en">Messages simplified from the A2UI v1.0 spec</span></p>
+      </div>
+      <ol class="pg-steps" aria-label="Urutan pesan">
+        <li>createSurface</li><li>updateComponents</li><li>updateDataModel</li><li>deleteSurface</li>
+      </ol>
+      <div class="pg-body">
+        <pre class="pg-code" tabindex="0" aria-label="Pesan JSON dari agent"><code></code></pre>
+        <div class="device" aria-live="polite">
+          <div class="device-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="surface"></div>
+        </div>
+      </div>
+      <div class="pg-foot">
+        <p class="pg-caption"></p>
+        <div class="pg-actions">
+          <button class="btn" type="button" data-pg-next></button>
+          <button class="btn btn--ghost" type="button" data-pg-reset><span data-l="id">Ulangi</span><span data-l="en">Start over</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="section" id="tentang" aria-labelledby="tentang-title">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <h2 class="section-title" id="tentang-title"><span data-l="id">Tentang saya</span><span data-l="en">About me</span></h2>
+      <p data-l="id">Saya Rahadian Hadi, software engineer di Indonesia yang bekerja di persimpangan software engineering dan product development. Alih-alih mengejar fitur satu per satu, saya lebih senang membangun hal-hal yang membuat fitur berikutnya lebih mudah dibuat: arsitektur, standar pengembangan, starter kit, dan dokumentasi.</p>
+      <p data-l="en">I'm Rahadian Hadi, a software engineer in Indonesia working where software engineering meets product development. Instead of chasing features one at a time, I'd rather build the things that make the next feature easier: architecture, development standards, starter kits, and documentation.</p>
+      <p data-l="id">Ukuran keberhasilan saya sederhana: kalau saya cuti dua minggu, tim tetap bisa jalan karena semuanya tertulis.</p>
+      <p data-l="en">My measure of success is simple: if I take two weeks off, the team keeps moving because everything is written down.</p>
+
+      <blockquote class="creed">
+        <p data-l="id" style="margin:0">“Bangun sistem yang terstandarisasi, terdokumentasi, mudah dipelihara, dan dapat digunakan kembali untuk banyak proyek.”</p>
+        <p data-l="en" style="margin:0">“Build systems that are standardised, documented, easy to maintain, and reusable across many projects.”</p>
+        <footer><span data-l="id">Pegangan saya, tapi tetap saya sesuaikan dengan proyeknya</span><span data-l="en">My rule of thumb, bent to fit each project</span></footer>
+      </blockquote>
+
+      <p class="habits-intro" data-l="id">Beberapa kebiasaan yang sering saya pakai. Kalau proyeknya butuh cara lain, ya saya ganti.</p>
+      <p class="habits-intro" data-l="en">A few habits I reach for often. If a project needs something different, I change them.</p>
+      <dl class="principles">
+        <div><dt><span data-l="id">Bahasa bisnis dulu</span><span data-l="en">Business words first</span></dt><dd><span data-l="id">Saya biasanya mulai dari istilah yang dipakai tim bisnis, lalu kodenya mengikuti. Untuk proyek kecil, yang sederhana sudah cukup.</span><span data-l="en">I usually start from the words the business uses, and the code follows. For small projects, simple is enough.</span></dd></div>
+        <div><dt><span data-l="id">Sepakati API di awal</span><span data-l="en">Agree on the API early</span></dt><dd><span data-l="id">Kalau banyak pihak terlibat, saya tulis kontrak OpenAPI dulu. Untuk skrip sekali pakai, tidak perlu.</span><span data-l="en">When several parties are involved, I write the OpenAPI contract first. For a throwaway script, I don't.</span></dd></div>
+        <div><dt><span data-l="id">Logika tidak ikut framework</span><span data-l="en">Logic stays off the framework</span></dt><dd><span data-l="id">Saya coba pisahkan logika bisnis dari framework supaya gampang dipindah, selama pemisahannya memang terasa berguna.</span><span data-l="en">I try to keep business logic apart from the framework so it's easy to move, as long as the split earns its keep.</span></dd></div>
+        <div><dt><span data-l="id">Tulis dulu, bangun kemudian</span><span data-l="en">Write first, build after</span></dt><dd><span data-l="id">Ide yang belum bisa dijelaskan dalam beberapa paragraf biasanya belum matang. Tapi kadang prototipe menjawab lebih cepat.</span><span data-l="en">An idea that can't be explained in a few paragraphs usually isn't ready. Sometimes a prototype answers faster, though.</span></dd></div>
+        <div><dt><span data-l="id">Satu cara yang disepakati</span><span data-l="en">One agreed way</span></dt><dd><span data-l="id">Saya pilih konvensi tim supaya tidak mengulang debat yang sama. Kalau ada yang mengganggu, kita ubah bareng.</span><span data-l="en">I pick team conventions so we don't repeat the same debate. If one gets in the way, we change it together.</span></dd></div>
+        <div><dt><span data-l="id">Tumbuh sedikit-sedikit</span><span data-l="en">Grow a little at a time</span></dt><dd><span data-l="id">Saya lebih suka sistem yang berkembang bertahap daripada rewrite besar, kecuali fondasinya memang sudah tidak layak.</span><span data-l="en">I prefer systems that grow step by step over big rewrites, unless the foundation really is beyond saving.</span></dd></div>
+      </dl>
+    </div>
+
+    <aside class="about-side">
+      <svg viewBox="0 0 300 340" aria-hidden="true" data-anim>
+        <circle class="f-soft" cx="160" cy="180" r="128"/>
+        <rect class="f-soft s" x="28" y="230" width="104" height="26" rx="4"/><path class="s" d="M44 236v14"/>
+        <rect class="f-paper s" x="40" y="256" width="92" height="28" rx="4"/><path class="s" d="M56 262v16M64 262v16"/>
+        <rect class="f-acc s" x="32" y="284" width="108" height="28" rx="4"/><path class="s" d="M124 290v16"/>
+        <path class="s nf" d="M206 240C206 200 200 164 210 112"/>
+        <path class="f-acc s leaf l" style="animation-delay:-1s" d="M205 204c-30-4-48-24-50-46 22 2 44 18 50 46z"/>
+        <path class="f-acc s leaf r" d="M207 172c26-6 44-26 44-50-22 4-40 22-44 50z"/>
+        <path class="f-acc s leaf r" style="animation-delay:-2s" d="M210 114c-10-24-4-48 14-62 8 24 2 46-14 62z"/>
+        <rect class="f-acc2 s" x="142" y="236" width="128" height="22" rx="6"/>
+        <path class="f-acc2 s" d="M152 258h108l-12 66h-84z"/>
+        <text x="206" y="300" text-anchor="middle" class="f-ink" style="font:800 17px var(--display)">v2.1</text>
+        <path class="f-ink tw1 tb" d="M264 72l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+        <path class="f-ink tw3 tb" d="M58 120l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+      </svg>
+      <div class="stack">
+        <h3><span data-l="id">Backend dan data</span><span data-l="en">Backend and data</span></h3>
+        <ul><li>Python</li><li>Django</li><li>Django REST Framework</li><li>PostgreSQL</li><li>Redis</li></ul>
+        <h3>Frontend</h3>
+        <ul><li>HTMX</li><li>Django-Cotton</li><li>PicoCSS</li><li>Dasa UI</li></ul>
+        <h3><span data-l="id">Infrastruktur</span><span data-l="en">Infrastructure</span></h3>
+        <ul><li>Podman</li><li>Nginx</li><li>Gunicorn</li><li>MinIO</li><li>OpenAPI</li></ul>
+        <p class="avoid"><span data-l="id">Yang biasanya saya hindari: <s>monolit tanpa struktur</s>, <s>hardcoding</s>, <s>dokumentasi seadanya</s>.</span><span data-l="en">What I usually steer clear of: <s>unstructured monoliths</s>, <s>hardcoding</s>, <s>"we'll document it later"</s>.</span></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="section" id="kontak" aria-labelledby="kontak-title">
+  <div class="wrap contact">
+    <div>
+      <h2 class="section-title" id="kontak-title"><span data-l="id">Mari ngobrol</span><span data-l="en">Let's talk</span></h2>
+      <p class="section-lead" data-l="id">Punya sistem yang mulai sulit dirawat, atau tim yang ingin punya standar pengembangan bersama? Ceritakan situasinya lewat email. Saya biasanya membalas dalam beberapa hari kerja.</p>
+      <p class="section-lead" data-l="en">Got a system that's getting hard to maintain, or a team that wants shared development standards? Tell me about it by email. I usually reply within a few working days.</p>
+      <a class="mail" href="mailto:heyradian@gmail.com">heyradian@gmail.com</a>
+      <div class="contact-actions">
+        <a class="btn" href="mailto:heyradian@gmail.com"><span data-l="id">Tulis email</span><span data-l="en">Write an email</span></a>
+        <button class="btn btn--ghost" type="button" data-copy="heyradian@gmail.com"><span data-l="id">Salin alamat</span><span data-l="en">Copy address</span></button>
+        <span class="copied" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+    <svg viewBox="0 0 360 260" aria-hidden="true" data-anim>
+      <circle class="f-soft" cx="190" cy="140" r="112"/>
+      <circle class="f-acc2 s" cx="300" cy="50" r="22"/>
+      <path id="flight" class="s nf" style="opacity:.55" stroke-dasharray="3 9" d="M24 214C4 120 120 56 168 108s-24 96 40 70 74-60 76-20"/>
+      <rect class="f-paper s" x="226" y="172" width="112" height="76" rx="8"/>
+      <path class="s nf" d="M226 180l56 38 56-38"/>
+      <g><path class="f-acc s" d="M-18-13L20 0-18 13-9 0z"/><path class="s" d="M-9 0h29"/><animateMotion dur="5s" repeatCount="indefinite" rotate="auto"><mpath href="#flight"/></animateMotion></g>
+      <path class="f-ink tw2 tb" d="M80 52l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+    </svg>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="week">
+      <h2><span data-l="id">Palet minggu ini. Klik untuk mencoba warna hari lain.</span><span data-l="en">This week's palettes. Click to try another day's colour.</span></h2>
+      <ul class="week-strip"></ul>
+    </div>
+    <div class="foot-links">
+      <a href="terms.html"><span data-l="id">Ketentuan</span><span data-l="en">Terms</span></a>
+      <a href="privacy.html"><span data-l="id">Privasi</span><span data-l="en">Privacy</span></a>
+      <span>© <span data-year>2026</span> Rahadian Hadi</span>
     </div>
   </div>
 </footer>
 
+<script src="assets/rh.js"></script>
 <script>
-async function submitForm() {
-  const name = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  const subject = document.getElementById('fsubject').value;
-  const message = document.getElementById('fmessage').value.trim();
+(function () {
+  var RH = window.RH;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (!name || !email || !message) {
-    alert('Please fill in Name, Email, and Message.');
-    return;
+  /* greeting by local time */
+  function greet() {
+    var h = new Date().getHours(), en = RH.lang === 'en';
+    var t = h < 4 ? (en ? 'Good evening' : 'Selamat malam')
+          : h < 11 ? (en ? 'Good morning' : 'Selamat pagi')
+          : h < 15 ? (en ? 'Good afternoon' : 'Selamat siang')
+          : h < 18 ? (en ? 'Good afternoon' : 'Selamat sore')
+          : (en ? 'Good evening' : 'Selamat malam');
+    document.querySelectorAll('[data-greet]').forEach(function (el) { el.textContent = t; });
   }
+  greet(); document.addEventListener('rh:lang', greet);
 
-  const btn = document.querySelector('.form-submit');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-
-  try {
-    const res = await fetch('https://formspree.io/f/mzdwdbyd', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ name, email, subject, message })
+  /* run illustration loops only while they're on screen (and pause SMIL too) */
+  function setLive(el, on) {
+    el.classList.toggle('live', on);
+    var svg = el.tagName.toLowerCase() === 'svg' ? el : el.querySelector('svg');
+    if (svg && svg.pauseAnimations) { on && !reduce ? svg.unpauseAnimations() : svg.pauseAnimations(); }
+  }
+  var desktop = window.matchMedia('(min-width: 901px)');
+  var stageFigs = Array.prototype.slice.call(document.querySelectorAll('.stage figure'));
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var el = e.target;
+      if (desktop.matches && el.closest('.stage')) return; // stage figures follow the active chapter
+      setLive(el, e.isIntersecting);
     });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
 
-    if (res.ok) {
-      document.getElementById('form-fields').style.display = 'none';
-      document.getElementById('form-success').classList.add('show');
-    } else {
-      throw new Error('Form submission failed');
-    }
-  } catch {
-    btn.textContent = 'Send Message';
-    btn.disabled = false;
-    alert('Something went wrong. Please try emailing us directly at heyradian@gmail.com');
+  /* scrollytelling: the active chapter picks the illustration */
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+  var stepLinks = Array.prototype.slice.call(document.querySelectorAll('.stage-steps a'));
+  stepLinks.forEach(function (a) { a.setAttribute('tabindex', '-1'); });
+  function activate(i) {
+    stageFigs.forEach(function (f, k) {
+      f.classList.toggle('is-active', k === i);
+      if (desktop.matches) setLive(f, k === i);
+    });
+    stepLinks.forEach(function (a, k) { a.classList.toggle('is-active', k === i); a.classList.toggle('is-done', k < i); });
   }
-}
-</script>
-</script>
-<script>
-    /* theme toggle script removed; keep light theme */
+  var chIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) activate(+e.target.dataset.step); });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  chapters.forEach(function (c) { chIo.observe(c); });
+  activate(0);
+
+  /* on narrow screens each illustration moves into its own chapter */
+  var stage = document.querySelector('.stage');
+  function place() {
+    stageFigs.forEach(function (f) {
+      var ch = document.getElementById(f.dataset.for);
+      if (!desktop.matches) { f.classList.add('ch-fig'); ch.insertBefore(f, ch.firstChild); }
+      else { f.classList.remove('ch-fig'); stage.insertBefore(f, stage.querySelector('.stage-steps')); }
+    });
+    stage.classList.toggle('moved', !desktop.matches);
+    if (desktop.matches) activate(0);
+  }
+  place(); desktop.addEventListener('change', place);
+
+  /* nav: mark the section in view */
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var secIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(function (a) { a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id)); });
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('main > section[id]').forEach(function (s) { secIo.observe(s); });
+
+  /* copy email */
+  var copyBtn = document.querySelector('[data-copy]'), copied = document.querySelector('.copied');
+  copyBtn.addEventListener('click', function () {
+    var addr = copyBtn.dataset.copy;
+    var done = function () { copied.textContent = RH.lang === 'en' ? 'Address copied' : 'Alamat tersalin'; setTimeout(function () { copied.textContent = ''; }, 2600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(addr).then(done, function () { copied.textContent = addr; });
+    else copied.textContent = addr;
+  });
+
+  /* ── A2UI playground ── */
+  var P = RH.PALETTES;
+  var T = {
+    id: { title: 'Pesan ruang rapat', topic: 'Topik rapat', when: 'Waktu', room: 'Ruang', submit: 'Ajukan booking',
+          phTopic: 'mis. Review arsitektur', vTopic: 'Review arsitektur', rooms: ['Ruang A', 'Ruang B', 'Ruang C'],
+          missing: 'Topik rapat dan waktu harus diisi dulu.', sent: 'Aksi booking.submit terkirim ke backend:',
+          empty: 'Belum ada surface. Agent belum mengirim pesan apa pun.', closed: 'Surface ditutup. Alur booking selesai dan layar kembali bersih.',
+          next: ['Kirim createSurface', 'Kirim updateComponents', 'Kirim updateDataModel', 'Kirim deleteSurface', 'Mulai dari awal'],
+          cap: ['Tekan tombol untuk mengirim pesan pertama dari agent ke aplikasi.',
+                'createSurface membuka area UI baru, lengkap dengan katalog komponen dan tema. Formulirnya sungguhan: coba ketik di Topik rapat atau pilih Waktu.',
+                'updateComponents menambah komponen tanpa membangun ulang yang sudah ada, jadi isian Anda tetap aman. Coba pilih ruang, lalu tekan Ajukan booking.',
+                'updateDataModel mengisi data lewat path. Input yang sudah tampil cukup diperbarui nilainya, dan isian yang sudah Anda ketik tidak ditimpa.',
+                'deleteSurface menutup area UI saat alurnya selesai. Aksi pengguna sebelumnya sudah dikirim ke backend Django.'] },
+    en: { title: 'Book a meeting room', topic: 'Meeting topic', when: 'Time', room: 'Room', submit: 'Submit booking',
+          phTopic: 'e.g. Architecture review', vTopic: 'Architecture review', rooms: ['Room A', 'Room B', 'Room C'],
+          missing: 'Fill in the meeting topic and time first.', sent: 'Action booking.submit sent to the backend:',
+          empty: 'No surface yet. The agent hasn’t sent anything.', closed: 'Surface closed. The booking flow is done and the screen is clean again.',
+          next: ['Send createSurface', 'Send updateComponents', 'Send updateDataModel', 'Send deleteSurface', 'Start over'],
+          cap: ['Press the button to send the agent’s first message to the app.',
+                'createSurface opens a new UI area with a component catalog and a theme. The form is real: type in Meeting topic or pick a Time.',
+                'updateComponents adds components without rebuilding what’s already there, so what you typed stays. Pick a room, then press Submit booking.',
+                'updateDataModel fills in data by path. Inputs already on screen just get new values, and anything you already typed is left alone.',
+                'deleteSurface closes the UI area when the flow ends. The user’s action was already sent to the Django backend.'] }
+  };
+  var step = 0, built = 0, filled = false, els = {}, data = { topic: '', when: '', room: -1 };
+  var code = document.querySelector('.pg-code code'), pre = document.querySelector('.pg-code');
+  var surface = document.querySelector('.surface'), caption = document.querySelector('.pg-caption');
+  var nextBtn = document.querySelector('[data-pg-next]'), steps = document.querySelectorAll('.pg-steps li');
+
+  function defaultWhen() {
+    var d = new Date(), p = function (n) { return String(n).padStart(2, '0'); };
+    d.setDate(d.getDate() + ((4 - d.getDay() + 7) % 7 || 7));
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + 'T10:00';
+  }
+  var WHEN0 = defaultWhen();
+  function mk(tag, cls) { var e = document.createElement(tag); if (cls) e.className = cls; return e; }
+  function flash(el) { el.classList.remove('changed'); void el.offsetWidth; el.classList.add('changed'); }
+
+  function field(type, name) {
+    var wrap = mk('label', 'ui-field'), text = mk('span', 'ui-label'), input = mk('input', 'ui-input');
+    input.type = type; input.name = name; input.autocomplete = 'off';
+    wrap.appendChild(text); wrap.appendChild(input);
+    return { wrap: wrap, text: text, input: input };
+  }
+  function paintRooms() {
+    els.chips.forEach(function (c, i) { c.classList.toggle('on', i === data.room); c.setAttribute('aria-pressed', String(i === data.room)); });
+  }
+  function buildBase() {
+    surface.className = 'surface ui-in'; surface.textContent = '';
+    els.title = mk('div', 'ui-title');
+    els.topic = field('text', 'topic'); els.when = field('datetime-local', 'when');
+    els.topic.input.addEventListener('input', function () { data.topic = els.topic.input.value; });
+    els.when.input.addEventListener('input', function () { data.when = els.when.input.value; });
+    surface.appendChild(els.title); surface.appendChild(els.topic.wrap); surface.appendChild(els.when.wrap);
+  }
+  function buildRoom() {
+    var g = mk('div', 'ui-group ui-in'), f = mk('div', 'ui-field'), chips = mk('div', 'ui-chips');
+    els.roomLabel = mk('span', 'ui-label'); els.chips = [];
+    chips.setAttribute('role', 'group');
+    [0, 1, 2].forEach(function (i) {
+      var c = mk('button', 'ui-chip'); c.type = 'button';
+      c.addEventListener('click', function () { data.room = i; paintRooms(); });
+      chips.appendChild(c); els.chips.push(c);
+    });
+    f.appendChild(els.roomLabel); f.appendChild(chips);
+    els.send = mk('button', 'ui-btn'); els.send.type = 'button';
+    els.send.addEventListener('click', submit);
+    els.status = mk('p', 'ui-status'); els.status.setAttribute('role', 'status');
+    g.appendChild(f); g.appendChild(els.send); g.appendChild(els.status);
+    surface.appendChild(g);
+    paintRooms();
+  }
+  function submit() {
+    var t = T[RH.lang];
+    if (!data.topic.trim() || !data.when) { els.status.className = 'ui-status is-error'; els.status.textContent = t.missing; return; }
+    var when = new Date(data.when).toLocaleString(RH.lang === 'en' ? 'en-GB' : 'id-ID', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+    els.status.className = 'ui-status';
+    els.status.textContent = t.sent + ' ' + data.topic.trim() + ', ' + when + (data.room >= 0 ? ', ' + t.rooms[data.room] : '') + '.';
+  }
+  function fill(animate) {
+    var t = T[RH.lang];
+    if (!data.topic) { data.topic = t.vTopic; els.topic.input.value = t.vTopic; if (animate) flash(els.topic.input); }
+    if (!data.when) { data.when = WHEN0; els.when.input.value = WHEN0; if (animate) flash(els.when.input); }
+    if (data.room < 0) data.room = 1;
+    paintRooms();
+  }
+  function labels() {
+    if (!built) return;
+    var t = T[RH.lang];
+    els.title.textContent = t.title;
+    els.topic.text.textContent = t.topic; els.topic.input.placeholder = t.phTopic;
+    els.when.text.textContent = t.when;
+    if (els.chips) {
+      els.roomLabel.textContent = t.room; els.send.textContent = t.submit;
+      els.chips.forEach(function (c, i) { c.textContent = t.rooms[i]; });
+      els.status.textContent = '';
+    }
+  }
+
+  function message(n, t) {
+    if (n === 1) return { createSurface: { surfaceId: 'booking', catalogId: 'dasa-ui/v2', theme: P[RH.palette].id, components: [
+      { id: 'title', component: 'Text', text: t.title },
+      { id: 'topic', component: 'TextField', label: t.topic, value: '@/booking/topic' },
+      { id: 'when', component: 'DateTimeInput', label: t.when, enableDate: true, enableTime: true, value: '@/booking/when' } ] } };
+    if (n === 2) return { updateComponents: { surfaceId: 'booking', components: [
+      { id: 'room', component: 'ChoicePicker', variant: 'chips', options: t.rooms, value: '@/booking/room' },
+      { id: 'send', component: 'Action', label: t.submit, action: 'booking.submit' } ] } };
+    if (n === 3) return { updateDataModel: { surfaceId: 'booking', path: '/booking', value: { topic: data.topic, when: data.when, room: t.rooms[data.room] } } };
+    if (n === 4) return { deleteSurface: { surfaceId: 'booking' } };
+    return null;
+  }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function highlight(obj) {
+    if (!obj) return '<span class="tp">// ' + (RH.lang === 'en' ? 'waiting for the agent…' : 'menunggu agent…') + '</span>';
+    return esc(JSON.stringify(obj, null, 2))
+      .replace(/"([^"]+)":/g, '<span class="tk">"$1"</span><span class="tp">:</span>')
+      .replace(/: "([^"]*)"/g, ': <span class="ts">"$1"</span>')
+      .replace(/^(\s+)"([^"]*)"(,?)$/gm, '$1<span class="ts">"$2"</span>$3');
+  }
+  function render(animate) {
+    var t = T[RH.lang];
+    if (step === 0 || step === 4) {
+      built = 0; filled = false; els = {}; data = { topic: '', when: '', room: -1 };
+      surface.className = 'surface is-empty' + (animate ? ' ui-in' : '');
+      surface.textContent = step === 0 ? t.empty : t.closed;
+    } else {
+      if (built < 1) { buildBase(); built = 1; }
+      if (step >= 2 && built < 2) { buildRoom(); built = 2; }
+      if (step >= 3 && !filled) { fill(animate); filled = true; }
+      labels();
+    }
+    code.innerHTML = highlight(message(step, t));
+    if (animate) { pre.classList.remove('flash'); void pre.offsetWidth; pre.classList.add('flash'); }
+    caption.textContent = t.cap[step];
+    nextBtn.textContent = t.next[step];
+    steps.forEach(function (li, k) { li.classList.toggle('is-done', k < step - 1 || (step === 4 && k < 4)); li.classList.toggle('is-current', k === step - 1); });
+  }
+  nextBtn.addEventListener('click', function () { step = step === 4 ? 0 : step + 1; render(true); });
+  document.querySelector('[data-pg-reset]').addEventListener('click', function () { step = 0; render(true); });
+  document.addEventListener('rh:lang', function () { render(false); });
+  document.addEventListener('rh:palette', function () { if (step === 1) render(false); });
+  render(false);
+})();
 </script>
 </body>
 </html>
